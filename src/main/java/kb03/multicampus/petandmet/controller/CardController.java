@@ -10,6 +10,7 @@ public class CardController {
 	@Autowired
 	private CardRepository cardRepository;
 	
+	
 	@GetMapping({"","/"})
 	public String index() {
 		return "index";
