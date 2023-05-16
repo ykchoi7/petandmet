@@ -27,11 +27,40 @@ public class ProductController {
     	Map<String, Object> map = new HashMap<>();
     	
     	List<ProductDto> list = new ArrayList<>();
-    	list.add(new ProductDto(1, "사료1", 10000));
-    	list.add(new ProductDto(2, "사료2", 20000));
-    	list.add(new ProductDto(3, "사료3", 30000));
+    	list.add(new ProductDto(1, "사료1", 10000, "feed", null, true, true, true, true));
+    	list.add(new ProductDto(2, "사료2", 20000, "feed", null, true, false, true, false));
+    	list.add(new ProductDto(3, "사료3", 30000, "feed", null, false, true, false, false));
     	
-    	map.put("dto", new ProductDto(4, "사료4", 40000));
+    	map.put("list", list);
+    	System.out.println(map);
+    	return map;
+    }
+    
+    @ResponseBody
+    @GetMapping("/snack")
+    public Map<String, Object> getSnacks() {
+    	Map<String, Object> map = new HashMap<>();
+    	
+    	List<ProductDto> list = new ArrayList<>();
+    	list.add(new ProductDto(4, "간식1", 5000, "snack", null, true, true, true, true));
+    	list.add(new ProductDto(5, "간식2", 7000, "snack", null, true, false, true, false));
+    	list.add(new ProductDto(6, "간식3", 9000, "snack", null, false, true, false, true));
+    	
+    	map.put("list", list);
+    	System.out.println(map);
+    	return map;
+    }
+    
+    @ResponseBody
+    @GetMapping("/toy")
+    public Map<String, Object> getToys() {
+    	Map<String, Object> map = new HashMap<>();
+    	
+    	List<ProductDto> list = new ArrayList<>();
+    	list.add(new ProductDto(7, "장난감1", 30000, "toy", null, true, true, true, true));
+    	list.add(new ProductDto(8, "장난감2", 40000, "toy", null, false, false, true, false));
+    	list.add(new ProductDto(9, "장난감3", 50000, "toy", null, true, false, false, false));
+    	
     	map.put("list", list);
     	System.out.println(map);
     	return map;

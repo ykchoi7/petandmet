@@ -6,12 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>페트와 메트</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<h1>상품 추천 목록</h1>
 	<figure>
-		<img alt="반려동물 사진" src="사진 경로">
+		<img alt="반려동물 사진" src="">
 		<figcaption>반려동물 이름</figcaption>
 	</figure>
 
@@ -24,54 +25,33 @@
 	<div id="msg"></div>
 
 	<script type="text/javascript">
-		/* $(function() {
-			$("#f1").submit(function(evt) {
-				//핸들러메서드가 false 반환시 원래행동을 못하게 막는것
-				// evt.preventDefault()
-				sendNumber()
-				return false
-			})
-		})
-		function sendNumber() {
-			var n1 = $("#n1").val() //입력한 숫자
-			var options = {
-				// url : "check_number.ng?no="+n1,
-				url : "check_number_ng/" + n1,
-				success : function(data) {
-					$("#msg").html(data.msg)
-				},
-				error : function() {
-				}
-			}
-			$.ajax(options)
-		} */
-
+	
 		window.onload = function() {
-
-			document.querySelector('#feed').onclick = function(e) {
-				// e.preventDefault()
-				console.log('feed')
+			function ajax(path) {
 				var options = {
-					url : 'products/feed',
+					url : 'products/' + path,
 					success : function(data) {
-						var dto = data.dto;
-						console.log(dto)
-						$('msg').html('')
-						$('#msg').html(dto.no + ' ' + dto.name + ' ' + dto.price)
+						var msg = $('#msg')
+						msg.html('')
+						$.each(data.list, function(index, item) {
+							msg.append('<p>' + item.no + ' ' + item.name + ' ' + item.price + ' ' + item.category + ' ' + item.image + ' ' + item.patella + ' ' + item.tooth + ' ' + item.skin + ' ' + item.scaling +  '</p>')
+						})
 					},
-					error : function() {}
+					error : function() {
+					}
 				}
 				$.ajax(options)
+			}
+			document.querySelector('#feed').onclick = function(e) {
+				ajax('feed')
 				return false
 			}
 			document.querySelector('#snack').onclick = function(e) {
-				// e.preventDefault()
-				console.log('snack')
+				ajax('snack')
 				return false
 			}
 			document.querySelector('#toy').onclick = function(e) {
-				// e.preventDefault()
-				console.log('toy')
+				ajax('toy')
 				return false
 			}
 
