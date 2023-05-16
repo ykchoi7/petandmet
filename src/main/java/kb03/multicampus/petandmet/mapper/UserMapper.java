@@ -11,5 +11,6 @@ import java.util.List;
 public interface UserMapper {
     @Select("Select * FROM user where no = #{no}")
     UserDto findByNo(@Param("no") int no);
-
+    @Select("Select * FROM user where id = #{id}")
+    UserDto findById(String id);
 }

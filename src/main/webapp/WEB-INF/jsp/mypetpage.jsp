@@ -13,7 +13,9 @@
     </style>
 </head>
 <body>
-<h1>마이 페이지</h1>
+<h1>마이 펫 페이지</h1>
+마이 펫은 몇 마리? = ${pets.size()}
+<c:forEach items = "${pets}" var = "pet">
 <table>
     <tr>
         <td rowspan="3">사진</td>
@@ -29,11 +31,11 @@
 <table style="border: black; align:center;">
     <tr>
         <td>이름</td>
-        <td>아지kang</td>
+        <td>${pet.name}</td>
     </tr>
     <tr>
         <td>동물 종류</td>
-        <td>강아지</td>
+        <td>${pet.pet_type}</td>
     </tr>
     <tr>
         <td>품종</td>
@@ -61,7 +63,7 @@
     </tr>
 
 </table>
-
+</c:forEach>
 <button>마이펫 정보 수정 >> </button>
 <br>
 <button>마이펫 추가 삭제 >> </button>
