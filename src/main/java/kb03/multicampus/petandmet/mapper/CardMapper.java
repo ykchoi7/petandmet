@@ -12,8 +12,7 @@ import kb03.multicampus.petandmet.entity.Card;
 
 @Mapper
 public interface CardMapper {
-	@Select("Select * FROM bbs ORDER BY no DESC")
+	@Select("Select * FROM card ORDER BY no DESC")
 	List<Card> findAll();
 	
-
 }

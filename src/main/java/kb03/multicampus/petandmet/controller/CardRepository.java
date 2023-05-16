@@ -1,5 +1,7 @@
 package kb03.multicampus.petandmet.controller;
 
-public class CardRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CardRepository{
 
 }
