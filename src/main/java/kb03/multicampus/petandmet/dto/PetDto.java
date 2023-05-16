@@ -1,8 +1,12 @@
 package kb03.multicampus.petandmet.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PetDto {
     private int uid;
     private int id;
