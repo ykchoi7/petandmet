@@ -35,9 +35,9 @@ public class InsuranceApplication {
 //	}
 
 	private void selectAll() {
-		List<InsuranceDto> all = mapper.findAll();
+		List<InsuranceDto> insli = mapper.findAll();
 		System.out.println("***전체출력***");
-		for (InsuranceDto dto : all) {
+		for (InsuranceDto dto : insli) {
 			System.out.println("*** "+ dto);
 		}
 	}
