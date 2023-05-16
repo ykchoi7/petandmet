@@ -20,4 +20,14 @@ public class MainController {
 	public String signup() {
 		return "signup";
 	}
+	
+	@GetMapping("/insurances")
+	public String insurances() {
+		return "insurances";
+	}
+	
+	@GetMapping("/insurance")
+	public String insurance() {
+		return "insurance";
+	}
 }
