@@ -16,7 +16,7 @@
 <h1>마이 페이지</h1>
 <table>
     <tr>
-        <td rowspan="3">사진</td>
+        <td rowspan="3"><img src = "${user.image}" style ="width:100px;height:100px"></td>
     </tr>
     <tr>
         <td>사진 업로드</td>
@@ -29,23 +29,23 @@
 <table style="border: black; align:center;">
     <tr>
         <td>이름</td>
-        <td>홍길동</td>
+        <td>${user.name}</td>
     </tr>
     <tr>
         <td>아이디</td>
-        <td>bbo1209</td>
+        <td>${user.id}</td>
     </tr>
     <tr>
         <td>이메일</td>
-        <td>bbo1209@naver.com</td>
+        <td>${user.email}</td>
     </tr>
     <tr>
         <td>전화번호</td>
-        <td>010-8399-9493</td>
+        <td>${user.phone}</td>
     </tr>
     <tr>
         <td>주소</td>
-        <td>서울시 서초구 사임당로 17길 90</td>
+        <td>${user.address}</td>
     </tr>
 </table>
 <button>마이펫 정보 확인하기 >> </button>

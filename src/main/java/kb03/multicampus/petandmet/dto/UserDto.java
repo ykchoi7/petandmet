@@ -10,6 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
+    private int no;
     private String id;
     private String pw;
     private String name;
@@ -17,4 +18,5 @@ public class UserDto {
     private String birth;
     private String address;
     private String image;
+    private String email;
 }

@@ -13,6 +13,7 @@ public class PetDto {
     private String pet_type;
     private String name;
     private String birth;
+    private int weight;
     private String gender;
     private boolean isNeutered;
     private String pet_image;

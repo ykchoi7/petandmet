@@ -15,4 +15,7 @@ public class UserService {
         return mapper.findByNo(no);
     }
 
+    public UserDto findById(String id) {
+        return mapper.findById(id);
+    }
 }
