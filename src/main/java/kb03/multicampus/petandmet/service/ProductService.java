@@ -22,5 +22,9 @@ public class ProductService {
 		log.info("{} load success!", category);
 		return mapper.findByCategory(category);
 	}
+	
+	public List<ProductDto> findByPnoAndCategory(int no, String category) {
+		return mapper.findByPnoAndCategory(no, category);
+	}
 
 }
