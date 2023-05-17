@@ -39,6 +39,10 @@ public class MyPetPageController {
         int uid = u.getNo();//펫 주인 찾아옴
         List<PetDto> pets = petMapper.findByUid(uid);
         model.addAttribute("pets",pets);
+        
+        PetDto p1 = pets.get(0);
+        session.setAttribute("p1",p1);
+
         return "mypetpage";
     }
 

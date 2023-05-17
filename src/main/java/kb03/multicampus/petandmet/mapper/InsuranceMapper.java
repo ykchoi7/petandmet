@@ -16,7 +16,13 @@ public interface InsuranceMapper {
 	@Select("Select * from insurance order by no desc")
 	List<InsuranceDto> findAll();
 	
-	@Select("select * from insurance where breed = #{breed} order by ino desc"  )
-    List<InsuranceDto> findByBreed(@Param("breed") Object breed);
+//	@Select("select * from insurance where breed = #{breed} order by ino desc"  )
+//    List<InsuranceDto> findByBreed(@Param("breed") Object breed);
 	
+	@Select("select a.*, b.* from\n"
+			+ "	petandmet.insurance as a, petandmet.breed_insurance as b\n"
+			+ "    where a.#{no} = b.#{ino}\n"
+			+ "    order by breed, fee;")
+	List<InsuranceDto> findByBreed(@Param("breed") Object breed);
+
 }

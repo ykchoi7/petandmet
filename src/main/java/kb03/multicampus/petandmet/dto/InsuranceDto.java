@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InsuranceDto {
 	
-	private int no, coverage_ratio, period, min_age, max_age, annual_limit, daily_limit;
+	private int no, period, min_age, max_age, annual_limit, daily_limit;
+	private double coverage_ratio;
 	private String name, company, benefits;
 	private Boolean patella, tooth, skin, scaling;
-	
-	
 	
 }

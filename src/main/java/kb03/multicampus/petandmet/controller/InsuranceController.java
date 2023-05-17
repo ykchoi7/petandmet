@@ -32,26 +32,16 @@ public class InsuranceController {
         List<InsuranceDto> ins = mapper.findAll();
 
         for (InsuranceDto i : ins) {
-    		String msg ="";
 
 			int max = (int)(i.getMax_age()/12);
 			i.setMax_age(max);
 			
-			int rate = (i.getCoverage_ratio()*100);
+			int rate = (int)(i.getCoverage_ratio()*100);
 			i.setCoverage_ratio(rate);
 			
 			int year = (int)(i.getPeriod()/12);
 			i.setPeriod(year);
 			System.out.println(i.getPatella());
-			
-			if (i.getPatella()==true) {
-				msg = "보장";
-				
-			} else {
-				msg = "미포함";
-			}
-			System.out.println(msg);
-			model.addAttribute("p", msg); 
 
 		}
 		model.addAttribute("ins", ins);
@@ -59,15 +49,19 @@ public class InsuranceController {
 		return "insurances";
 	}
 	
+
 	//petdto에서 pet breed를 가져오기 
-//	@GetMapping
-//    public String insurance(Model model, HttpServletRequest req) {
-//        HttpSession session = req.getSession();
-//        Object breed = session.getAttribute("breed"); //품종 찾아옴
-//        BreedInsuranceDto bi = (BreedInsuranceDto) breed;
-//        int ino = bi.getIno();//품종에 맞는 보험 가져오기
-//        List<InsuranceDto> ins = InsuranceMapper.findByBreed(breed);
-//        model.addAttribute("insurances", ins);
-//        return "insurances";
-//    }
+	@GetMapping
+    public String insurance(Model model, HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        Object p1 = session.getAttribute("p1"); //품종 찾아옴
+        PetDto pd = (PetDto) p1;
+        String breed = pd.getBreed();
+        
+        List<InsuranceDto> p1ins = mapper.findByBreed(breed);
+        model.addAttribute("p1ins", p1ins);
+        return "insurances";
+         
+    }
+	
 }
