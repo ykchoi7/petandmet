@@ -16,12 +16,23 @@
 			
 			<h2>${i.name}</h2>
 			<p>${i.company}</p>
-			<p>혜택: </p> ${i.benefits} <br>
+			<p>대상 연령: ${i.min_age}개월 ~ ${i.max_age}세</p>
+			<p>보장 비율: ${i.coverage_ratio}%</p>
+			<p>기간: ${i.period}년</p>
+			<p>혜택: ${i.benefits} </p>
+			<p>1년 최대 보장 금액: ${i.annual_limit}</p>
+			<p>1일 최대 보장 금액: ${i.daily_limit}</p>
+			
+			<p>슬개골 보장 여부: ${p}</p>
+			<p>구강질환 보장 여부: ${i.tooth}</p>
+			<p>피부질환 보장 여부: ${i.skin}</p>
+			<p>스케일링 여부: ${i.scaling} </p>
 			
 			<button type="button" onclick="location.href='insurance'">상세보기</button>
 			</c:forEach>
+			<br>
+			
 		</div>
 	</main>
-	<button type="button" onclick="location.href='insurance'">상세보기</button>
 </body>
 </html>
