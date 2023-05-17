@@ -1,6 +1,7 @@
 package kb03.multicampus.petandmet.service;
 
 import kb03.multicampus.petandmet.dto.InsuranceDto;
+import kb03.multicampus.petandmet.dto.PetDto;
 import kb03.multicampus.petandmet.dto.UserDto;
 import kb03.multicampus.petandmet.mapper.InsuranceMapper;
 import kb03.multicampus.petandmet.mapper.UserMapper;
@@ -18,6 +19,10 @@ public class InsuranceService {
 
     public List<InsuranceDto> findAll(){
         return mapper.findAll();
+    }
+    
+    public List<InsuranceDto> findByBreed(Object breed){
+        return mapper.findByBreed(breed);
     }
 
 }
