@@ -48,7 +48,7 @@
         <td>${user.address}</td>
     </tr>
 </table>
-<button>마이펫 정보 확인하기 >> </button>
+<button type = "button" onclick = "location.href = 'mypetpage'";>마이펫 정보 확인하기 >> </button>
 <br>
 <button>마이펫 추가 등록하기 >> </button>
 </body>

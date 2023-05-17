@@ -13,7 +13,7 @@ public interface PetMapper {
     @Select("Select * FROM pet where no = #{no}")
     PetDto findByNo(@Param("no") int no);
 
-    @Select("select * from pet order by no desc where uid = #{uid}")
-    List<PetDto> findByUid(int uid);
+    @Select("select * from pet where uid = #{uid} order by uid desc"  )
+    List<PetDto> findByUid(@Param("uid") int uid);
 
 }
