@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +20,7 @@
 	<button id="acc">쇼핑몰적립율높은순</button>
 	<table border="1">
 		<tr id="title">
+			<th>이미지</th>
 			<th>카드이름</th>
 			<th>카드회사</th>
 			<th>연회비</th>
@@ -29,9 +32,10 @@
 			<th>동물보호 공익기금 여부</th>
 		</tr>
 	
-	<c:forEach var="card" items="${cards}">
+	<c:forEach items="${cards}" var="card">
 
-			<tr class="item">
+			<tr class="item">			
+				<td><img src="${card.image}" style="height:auto;"></td>
 				<td>${card.name}</td>
 				<td>${card.company}</td>
 				<td>${card.annual_fee}</td>
@@ -40,7 +44,7 @@
 				<td>${card.shopping_dis}</td>
 				<td>${card.acc_rate}</td>
 				<td>${card.insurance_reg}</td>
-				<td>${card.reg_fund}</td>
+				<td>${card.fund}</td>
 			</tr>
 		</c:forEach>
 
