@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h1>적금 목록</h1>
-
+	<button type = "button" onclick = "location.href = 'insurances'";>보험 추천 </button>
+	<button type = "button" onclick = "location.href = 'card'";>카드 추천 </button>
+	<button type = "button" onclick = "location.href = 'savings'";>적금 추천</button> <br>
 </body>
 </html>
