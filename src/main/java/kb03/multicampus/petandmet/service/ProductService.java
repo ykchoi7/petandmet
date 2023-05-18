@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kb03.multicampus.petandmet.dto.ProductDto;
+import kb03.multicampus.petandmet.dto.ProductRecommendRequestData;
 import kb03.multicampus.petandmet.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,9 +23,11 @@ public class ProductService {
 		log.info("{} load success!", category);
 		return mapper.findByCategory(category);
 	}
-	
-	public List<ProductDto> findByPnoAndCategory(int no, String category) {
-		return mapper.findByPnoAndCategory(no, category);
+
+	public List<ProductDto> getProducts(ProductRecommendRequestData data) {
+		int no = data.getPetNo();
+		String category = data.getCategory();
+		return mapper.findByPetNoAndCategory(no, category);
 	}
 
 }

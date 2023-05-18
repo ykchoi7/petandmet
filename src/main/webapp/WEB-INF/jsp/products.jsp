@@ -15,13 +15,14 @@
 </head>
 <body>
 	<h1>상품 추천 목록</h1>
-	<%-- <select>
+	<select id="petSelect">
 		<c:forEach items="${dtos}" var="pet">
-		<option value="${pet.id}">${pet.name}</option>
+		<option value="${pet.no}">${pet.name}</option>
 		</c:forEach>
-	</select> --%>
+	</select>
 	
-	<table>
+	
+	<%-- <table>
         <tr>
             <td rowspan="3"><img alt="반려동물 사진" src="${pet.pet_image}" style ="width:200px;height:200px"></td>
         </tr>
@@ -83,7 +84,7 @@
             </c:if>
             </td>
         </tr>
-    </table>
+    </table> --%>
 	<ul>
 		<li><a id="feed" href="#">사료</a></li>
 		<li><a id="snack" href="#">간식</a></li>
@@ -95,9 +96,24 @@
 	<script type="text/javascript">
 	
 		window.onload = function() {
-			function ajax(path) {
+			var petSelect = document.querySelector('#petSelect');
+			var no = petSelect.value;
+			
+			function handleSelectedOption() {
+				no = petSelect.value;
+				ajax(no, 'feed')
+				console.log(no);
+			}
+			
+			function ajax(no, category) {
 				var options = {
-					url : 'products/' + path,
+					url : 'products',
+					type : 'POST',
+					data : JSON.stringify({
+						petNo: no,
+						category: category
+					}),
+					contentType: "application/json",
 					success : function(data) {
 						var msg = $('#msg')
 						msg.html('')
@@ -111,17 +127,21 @@
 				$.ajax(options)
 			}
 			document.querySelector('#feed').onclick = function(e) {
-				ajax('feed')
+				ajax(no, 'feed')
 				return false
 			}
 			document.querySelector('#snack').onclick = function(e) {
-				ajax('snack')
+				ajax(no, 'snack')
 				return false
 			}
 			document.querySelector('#toy').onclick = function(e) {
-				ajax('toy')
+				ajax(no, 'toy')
 				return false
 			}
+			
+			petSelect.onchange = handleSelectedOption;
+			
+			handleSelectedOption();
 
 			/* // Get 전송 코드를 작성하세요.
 			document.querySelector("#btnSendGet").onclick = function() {

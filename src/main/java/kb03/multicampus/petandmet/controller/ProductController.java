@@ -2,6 +2,8 @@ package kb03.multicampus.petandmet.controller;
 
 import kb03.multicampus.petandmet.dto.PetDto;
 import kb03.multicampus.petandmet.dto.ProductDto;
+import kb03.multicampus.petandmet.dto.ProductRecommendRequestData;
+import kb03.multicampus.petandmet.dto.UserDto;
 import kb03.multicampus.petandmet.service.PetService;
 import kb03.multicampus.petandmet.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -30,49 +34,26 @@ public class ProductController {
 	@GetMapping
 	public String products(HttpSession session, Model model) {
 		// 2023-05-16 테스트 하는동안만 주석 처리 했음
-//    	Object object = session.getAttribute("user");
-//    	if (object == null) {
-//    		return "redirect:/login";
-//    	}
-//    	UserDto user = (UserDto) object;
-		PetDto pet = petService.findByNo(1);
-		model.addAttribute("pet", pet);
+    	Object object = session.getAttribute("user");
+    	if (object == null) {
+    		return "redirect:/login";
+    	}
+    	UserDto user = (UserDto) object;
+		List<PetDto> list = petService.findByUid(user.getNo());
+		model.addAttribute("dtos", list);
 		return "products";
 	}
 
 	@ResponseBody
-	@GetMapping("/feed")
-	public Map<String, Object> getFeeds() {
+	@PostMapping(consumes = "application/json")
+	public Map<String, Object> getProducts(@RequestBody ProductRecommendRequestData data) {
 		Map<String, Object> map = new HashMap<>();
-
-		List<ProductDto> list = productService.findByPnoAndCategory(4, "feed");
+		log.info("RequestBody: {}", data);
+		List<ProductDto> list = productService.getProducts(data);
 
 		map.put("list", list);
-		System.out.println(map);
+		log.info("HashMap: {}", map);
 		return map;
 	}
-
-	@ResponseBody
-	@GetMapping("/snack")
-	public Map<String, Object> getSnacks() {
-		Map<String, Object> map = new HashMap<>();
-
-		List<ProductDto> list = productService.findByPnoAndCategory(4, "snack");
-
-		map.put("list", list);
-		System.out.println(map);
-		return map;
-	}
-
-	@ResponseBody
-	@GetMapping("/toy")
-	public Map<String, Object> getToys() {
-		Map<String, Object> map = new HashMap<>();
-
-		List<ProductDto> list = productService.findByPnoAndCategory(4, "toy");
-
-		map.put("list", list);
-		System.out.println(map);
-		return map;
-	}
+	
 }
