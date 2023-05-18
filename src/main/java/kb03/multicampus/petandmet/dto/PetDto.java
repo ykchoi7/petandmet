@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PetDto {
+	private int no;
     private int uid;
     private int id;
     private String pet_type;
