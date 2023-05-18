@@ -25,9 +25,5 @@ public class InsuranceService {
     public List<Map<String, Object>> getBreedInsurance(Object breed) {
     	return mapper.getBreedInsurance(breed);
     }
-    
-//    public List<InsuranceDto> findByBreed(Object breed){
-//        return mapper.findByBreed(breed);
-//    }
 
 }

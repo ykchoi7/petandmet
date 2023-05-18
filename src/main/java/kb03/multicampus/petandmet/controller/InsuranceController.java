@@ -63,17 +63,20 @@ public class InsuranceController {
     public String insurance(Model model, HttpServletRequest req) {
         HttpSession session = req.getSession();
         Object petinfo = session.getAttribute("petinfo"); //펫 품종 불러오기 
-        @SuppressWarnings("unchecked")
+
 		List<PetDto> pd = (List<PetDto>) petinfo;
         
-        String breed = "";
-        for (PetDto petDto : pd) {
-        	breed = petDto.getBreed();
-		}
+        String breed = pd.get(0).getBreed().toString();
         List<Map<String, Object>> petins = mapper.getBreedInsurance(breed);
-    	model.addAttribute("petins", petins);
         
-        return "insurances";
+//        for (Object obj : petins) {
+//        	int max = (int)(((InsuranceDto) obj).getMax_age()/12);
+//        	((InsuranceDto) obj).setMax_age(max);
+//		}
+        
+        model.addAttribute("petins", petins);
+        
+        return "insurances"; 
          
     }
 	
