@@ -7,6 +7,7 @@ import kb03.multicampus.petandmet.mapper.InsuranceMapper;
 import kb03.multicampus.petandmet.mapper.UserMapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,12 @@ public class InsuranceService {
         return mapper.findAll();
     }
     
-    public List<InsuranceDto> findByBreed(Object breed){
-        return mapper.findByBreed(breed);
+    public List<Map<String, Object>> getBreedInsurance(Object breed) {
+    	return mapper.getBreedInsurance(breed);
     }
+    
+//    public List<InsuranceDto> findByBreed(Object breed){
+//        return mapper.findByBreed(breed);
+//    }
 
 }

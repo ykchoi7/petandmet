@@ -20,4 +20,5 @@ public class PetService {
     public List<PetDto> findByUid(int uid){
         return mapper.findByUid(uid);
     }
+    
 }

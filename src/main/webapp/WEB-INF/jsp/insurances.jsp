@@ -12,7 +12,7 @@
 	<h1>보험 추천 목록</h1>
 	<main class = "list" style>
 		<div class="info">
-			<c:forEach items="${ins}" var="i">
+			<c:forEach items="${petins}" var="i">
 			<h2>${i.name}</h2>
 			<p>${i.company}</p>
 			<p>대상 연령: ${i.min_age}개월 ~ ${i.max_age}세</p>
@@ -21,6 +21,7 @@
 			<p>혜택: ${i.benefits} </p>
 			<p>1년 최대 보장 금액: ${i.annual_limit}원 </p>
 			<p>1일 최대 보장 금액: ${i.daily_limit}원 </p>
+			<p>품종: ${i.breed}</p>
 			
 			<p>슬개골 보장 여부:
 				<c:if test="${i.patella}">
