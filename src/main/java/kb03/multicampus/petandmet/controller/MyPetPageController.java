@@ -43,7 +43,6 @@ public class MyPetPageController {
         
         List<PetDto> petinfo = petMapper.findByUid(uid);
         session.setAttribute("petinfo",petinfo);
-        
 
         return "mypetpage";
     }
