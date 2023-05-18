@@ -31,6 +31,7 @@ public class MyPetPageController {
 
     @Autowired
     PetService petService;
+    
     @GetMapping
     public String mypage(Model model, HttpServletRequest req) {
         HttpSession session = req.getSession();
@@ -40,8 +41,9 @@ public class MyPetPageController {
         List<PetDto> pets = petMapper.findByUid(uid);
         model.addAttribute("pets",pets);
         
-        PetDto p1 = pets.get(0);
-        session.setAttribute("p1",p1);
+        List<PetDto> petinfo = petMapper.findByUid(uid);
+        session.setAttribute("petinfo",petinfo);
+        
 
         return "mypetpage";
     }
