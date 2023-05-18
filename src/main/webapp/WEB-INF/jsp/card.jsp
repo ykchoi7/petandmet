@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>card</title>
+<title>페트와메트</title>
 </head>
 <body>
+	<h1>카드 추천</h1>
 	<button id="card">카드전체보기</button>
 	<button id="annualfee">연회비낮은순</button>
 	<button id="hospital">병원비할인율높은순</button>

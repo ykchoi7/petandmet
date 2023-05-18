@@ -7,6 +7,7 @@
 <title>savings</title>
 </head>
 <body>
+	<h1>적금 목록</h1>
 
 </body>
 </html>
