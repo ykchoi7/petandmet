@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CardController {
-	
+	@GetMapping("/card")
+	public String main() {
+		return "card";
+	}
 	 
 	
 }

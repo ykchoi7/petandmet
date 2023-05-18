@@ -1,8 +1,7 @@
 package kb03.multicampus.petandmet.entity;
 
 public class Card {
-	private int no,annual_fee;
-	private double hospital_dis,shopping_dis,acc_rate;
+	private int no,annual_fee,hospital_dis,shopping_dis,acc_rate;
 	private String name,company,benefits;
 	private boolean insurance_reg, fund;
 	
@@ -26,27 +25,27 @@ public class Card {
 		this.annual_fee = annual_fee;
 	}
 
-	public double getHospital_dis() {
+	public int getHospital_dis() {
 		return hospital_dis;
 	}
 
-	public void setHospital_dis(double hospital_dis) {
+	public void setHospital_dis(int hospital_dis) {
 		this.hospital_dis = hospital_dis;
 	}
 
-	public double getShopping_dis() {
+	public int getShopping_dis() {
 		return shopping_dis;
 	}
 
-	public void setShopping_dis(double shopping_dis) {
+	public void setShopping_dis(int shopping_dis) {
 		this.shopping_dis = shopping_dis;
 	}
 
-	public double getAcc_rate() {
+	public int getAcc_rate() {
 		return acc_rate;
 	}
 
-	public void setAcc_rate(double acc_rate) {
+	public void setAcc_rate(int acc_rate) {
 		this.acc_rate = acc_rate;
 	}
 
@@ -96,6 +95,10 @@ public class Card {
 				+ shopping_dis + ", acc_rate=" + acc_rate + ", name=" + name + ", company=" + company + ", benefits="
 				+ benefits + ", insurance_reg=" + insurance_reg + ", fund=" + fund + "]";
 	}
+	
+	
+
+
 	
 	
 }
