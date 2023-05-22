@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -43,7 +42,28 @@
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header><!-- End Header -->
+<header id="header" class="fixed-top header-inner-pages">
+
+	<div class="container d-flex align-items-center justify-content-lg-between">
+
+		<a href="/" class="logo ">
+			<img src="../../resources/assets/img/logo.png" alt="" style="height:50px; width: 180px;">
+		</a>
+
+		<!-- Uncomment below if you prefer to use an image logo -->
+		<!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+		<nav id="navbar" class="navbar order-last order-lg-0">
+			<ul>
+				<li><a class="nav-link scrollto active" href="#index">Home</a></li>
+			</ul>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+		</nav><!-- .navbar -->
+
+
+	</div>
+
+</header><!-- End Header -->
 
 <main id="main">
 
@@ -66,9 +86,9 @@
 		<div class="container" style="text-align:center">
 			<p>
 			<form method = "post" action="/login">
-				<label>아이디 <input type="text" name="id"></label><br> <br>
-				<label>비밀번호 <input type="password" name="password"></label><br><br>
-				<input type="submit" value="로그인">
+				<label>아이디<br> <input type="text" name="id"></label><br> <br>
+				<label>비밀번호<br> <input type="password" name="password"></label><br><br>
+				<input class="get-started-btn scrollto" type="submit" value="로그인">
 			</form>
 			<br>
 			<a href="signup">회원가입</a>      |

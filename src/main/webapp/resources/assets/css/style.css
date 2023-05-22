@@ -166,6 +166,7 @@ h6 {
   font-size: 14px;
   display: inline-block;
   border: 2px solid #ffc451;
+  background-color: rgba(255,247,250,0);
 }
 
 .get-started-btn:hover {
@@ -1553,3 +1554,16 @@ section {
   font-size: 13px;
   color: #fff;
 }
+input {
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 2px solid #ffcd6b;
+  text-align: center;
+}
+
+
+
