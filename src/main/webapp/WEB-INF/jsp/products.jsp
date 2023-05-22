@@ -6,22 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>페트와 메트</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
-	th,td{
-		border: 1px solid #444444;
-	}
+th, td {
+	border: 1px solid #444444;
+}
 </style>
 </head>
 <body>
 	<h1>상품 추천 목록</h1>
 	<select id="petSelect">
 		<c:forEach items="${dtos}" var="pet">
-		<option value="${pet.no}">${pet.name}</option>
+			<option value="${pet.no}">${pet.name}</option>
 		</c:forEach>
 	</select>
-	
-	
+
+
 	<%-- <table>
         <tr>
             <td rowspan="3"><img alt="반려동물 사진" src="${pet.pet_image}" style ="width:200px;height:200px"></td>
@@ -91,34 +92,40 @@
 		<li><a id="toy" href="#">장난감</a></li>
 	</ul>
 
-	<div id="msg"></div>
+	<table id="msg">
+		<tr>
+			<th>상품명</th>
+			<th>가격</th>
+			<th>사진</th>
+		</tr>
+	</table>
+
 
 	<script type="text/javascript">
-	
 		window.onload = function() {
 			var petSelect = document.querySelector('#petSelect');
 			var no = petSelect.value;
-			
+
 			function handleSelectedOption() {
 				no = petSelect.value;
 				ajax(no, 'feed')
 				console.log(no);
 			}
-			
+
 			function ajax(no, category) {
 				var options = {
 					url : 'products',
 					type : 'POST',
 					data : JSON.stringify({
-						petNo: no,
-						category: category
+						petNo : no,
+						category : category
 					}),
-					contentType: "application/json",
+					contentType : "application/json",
 					success : function(data) {
 						var msg = $('#msg')
-						msg.html('')
+						msg.html('<tr><th>상품명</th><th>가격</th><th>사진</th></tr>')
 						$.each(data.list, function(index, item) {
-							msg.append('<p>' + item.no + ' ' + item.name + ' ' + item.price + ' ' + item.category + ' ' + item.image + ' ' + item.patella + ' ' + item.tooth + ' ' + item.skin + ' ' + item.scaling +  '</p>')
+							msg.append('<tr><td>' + item.name + '</td><td>' + item.price + '</td><td><img src="' + item.image + '" style ="width:100px;height:100px"></td></tr>')
 						})
 					},
 					error : function() {
@@ -138,9 +145,9 @@
 				ajax(no, 'toy')
 				return false
 			}
-			
+
 			petSelect.onchange = handleSelectedOption;
-			
+
 			handleSelectedOption();
 
 			/* // Get 전송 코드를 작성하세요.
