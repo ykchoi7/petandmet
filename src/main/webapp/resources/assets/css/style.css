@@ -166,6 +166,7 @@ h6 {
   font-size: 14px;
   display: inline-block;
   border: 2px solid #ffc451;
+  background-color: rgba(255,247,250,0);
 }
 
 .get-started-btn:hover {
@@ -510,7 +511,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 30px 0;
   overflow: hidden;
 }
 
@@ -1553,3 +1554,43 @@ section {
   font-size: 13px;
   color: #fff;
 }
+input {
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 2px solid #ffcd6b;
+  text-align: center;
+}
+
+table {
+  border: 1px #a39485 solid;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+}
+
+.thead {
+  font-weight: bold;
+  color: #000000;
+  background: #ffcd6b;
+}
+
+td, th {
+  padding: 1em .5em;
+  vertical-align: middle;
+}
+
+td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+
