@@ -69,42 +69,40 @@
         <div class="container" style="text-align:center;">
             <table style = "margin: 0 auto;">
                 <tr>
-                    <td rowspan="3"><img src = "${user.image}" style ="width:100px;height:100px"></td>
+                    <td><img src = "${user.image}" style ="width:150px;height:150px"><br>
+
+                    </td>
                 </tr>
-                <tr>
-                    <td>사진 업로드</td>
-                </tr>
-                <tr>
-                    <td>사진 삭제</td>
-                </tr>
+
+
             </table>
             <br>
-            <table style="border: black; align:center; margin: 0 auto;">
+            <table style=" align:center; margin: 0 auto;">
                 <tr>
-                    <td>이름</td>
+                    <td class = "thead">이름</td>
                     <td>${user.name}</td>
                 </tr>
                 <tr>
-                    <td>아이디</td>
+                    <td class = "thead">아이디</td>
                     <td>${user.id}</td>
                 </tr>
                 <tr>
-                    <td>이메일</td>
+                    <td class = "thead">이메일</td>
                     <td>${user.email}</td>
                 </tr>
                 <tr>
-                    <td>전화번호</td>
+                    <td class = "thead">전화번호</td>
                     <td>${user.phone}</td>
                 </tr>
                 <tr>
-                    <td>주소</td>
+                    <td class = "thead">주소</td>
                     <td>${user.address}</td>
                 </tr>
             </table>
             <br>
             <button class="get-started-btn scrollto" type = "button" onclick = "location.href = 'mypetpage'";>마이펫 정보 확인하기 >> </button>
 
-            <button class="get-started-btn scrollto">마이펫 추가 등록하기 >> </button>
+            <button class="get-started-btn scrollto">내 정보 수정하기 >> </button>
         </div>
     </section>
 
