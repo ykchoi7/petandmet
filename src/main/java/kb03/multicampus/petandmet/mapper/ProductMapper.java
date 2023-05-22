@@ -28,4 +28,7 @@ public interface ProductMapper {
 			+ "END AS feed_type\r\n"
 			+ "FROM (SELECT *, FLOOR((to_days(CURDATE()) - to_days(birth)) / 365) age FROM pet WHERE NO = #{no}) tmp)")
 	List<ProductDto> findFeeds(@Param("no") int petNo, @Param("category") String category);
+
+	@Select("SELECT * FROM product where NO = #{no}")
+	ProductDto findByNo(@Param("no") int no);
 }

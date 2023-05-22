@@ -32,4 +32,8 @@ public class ProductService {
 		return mapper.findByPetNoAndCategory(no, category);
 	}
 
+	public ProductDto getProduct(int no) {
+		return mapper.findByNo(no);
+	}
+
 }
