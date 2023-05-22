@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductRecommendRequestData {
+public class ProductRecommendRequestDto {
 	
 	private int petNo;
 	private String category;

@@ -2,7 +2,7 @@ package kb03.multicampus.petandmet.controller;
 
 import kb03.multicampus.petandmet.dto.PetDto;
 import kb03.multicampus.petandmet.dto.ProductDto;
-import kb03.multicampus.petandmet.dto.ProductRecommendRequestData;
+import kb03.multicampus.petandmet.dto.ProductRecommendRequestDto;
 import kb03.multicampus.petandmet.dto.UserDto;
 import kb03.multicampus.petandmet.service.PetService;
 import kb03.multicampus.petandmet.service.ProductService;
@@ -40,13 +40,13 @@ public class ProductController {
     	}
     	UserDto user = (UserDto) object;
 		List<PetDto> list = petService.findByUid(user.getNo());
-		model.addAttribute("dtos", list);
+		model.addAttribute("pets", list);
 		return "products";
 	}
 
 	@ResponseBody
 	@PostMapping(consumes = "application/json")
-	public Map<String, Object> getProducts(@RequestBody ProductRecommendRequestData data) {
+	public Map<String, Object> getProducts(@RequestBody ProductRecommendRequestDto data) {
 		Map<String, Object> map = new HashMap<>();
 		log.info("RequestBody: {}", data);
 		List<ProductDto> list = productService.getProducts(data);
