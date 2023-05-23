@@ -42,13 +42,5 @@ public class MainController {
 		return "signup";
 	}
 	
-//	@GetMapping("/insurances")
-//	public String insurances() {
-//		return "insurances";
-//	}
-//
-//	@GetMapping("/insurance")
-//	public String insurance() {
-//		return "insurance";
-//	}
+
 }
