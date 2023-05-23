@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class SavingsDto {
 	private String image,name,bank;
 	private double interest_rate,prime_rate;
-	private int period, min_saving_amount, max_saving_amount;
+	private int no,period, min_saving_amount, max_saving_amount;
 	 
 	
 }
