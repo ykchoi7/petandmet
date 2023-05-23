@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@ th, td {
 		</tr>
 		<tr>
 			<td>가격</td>
-			<td>${dto.price}원</td>
+			<td><fmt:formatNumber value="${dto.price}" pattern="#,###"></fmt:formatNumber>원</td>
 		</tr>
 		<tr>
 			<td>평점</td>
