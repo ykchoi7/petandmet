@@ -21,7 +21,6 @@ import kb03.multicampus.petandmet.dto.BreedInsuranceDto;
 import kb03.multicampus.petandmet.dto.InsuranceDto;
 import kb03.multicampus.petandmet.dto.PetDto;
 import kb03.multicampus.petandmet.dto.ProductDto;
-import kb03.multicampus.petandmet.dto.ProductRecommendRequestData;
 import kb03.multicampus.petandmet.dto.UserDto;
 import kb03.multicampus.petandmet.mapper.InsuranceMapper;
 import kb03.multicampus.petandmet.service.InsuranceService;
