@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <td>품종</td>
-            <td>말티즈</td>
+            <td>${pet.breed}</td>
         </tr>
         <tr>
             <td>등록번호</td>
