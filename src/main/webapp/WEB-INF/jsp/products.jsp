@@ -45,8 +45,9 @@ th, td {
 			function print() {
 				msg.html('<tr><td>사진</td><td>상품명</td><td>가격</td></tr>')
 				$.each(list, function(index, item) {
-					msg.append(`<tr><td><img src="${'${item.image}'}" style ="width:100px;height:100px">`
-							+ `</td><td><a href="/products/${'${item.no}'}">${'${item.name}'}</a></td><td>${'${item.price}'}</td></tr>`)
+					var price = parseInt(`${'${item.price}'}`).toLocaleString('ko-KR');
+					msg.append(`<tr><td><img src="${'${item.image}'}" style ="width:100px;height:100px">
+					</td><td><a href="/products/${'${item.no}'}">${'${item.name}'}</a></td><td>${'${price}'}</td></tr>`)
 				})
 			}
 
