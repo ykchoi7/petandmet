@@ -18,11 +18,12 @@ public class SavingsController {
 	SavingMapper SavingMapper;
 	
 	@Autowired
-	SavingService SavingsService;
+	SavingService SavingService;
 	
-	@GetMapping("/savings")
-	public String savings(Model model) {
-        List<SavingsDto> savings = SavingMapper.findAllsave();
-        return "savings";
+	@GetMapping("/saving")
+	public String saving(Model model) {
+        List<SavingsDto> saving = SavingMapper.findAllsave();
+        model.addAttribute("savings",saving);
+        return "saving";
 	}
 }
