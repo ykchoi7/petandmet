@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kb03.multicampus.petandmet.dto.ProductDto;
-import kb03.multicampus.petandmet.dto.ProductRecommendRequestData;
+import kb03.multicampus.petandmet.dto.ProductRecommendRequestDto;
 import kb03.multicampus.petandmet.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,10 +24,16 @@ public class ProductService {
 		return mapper.findByCategory(category);
 	}
 
-	public List<ProductDto> getProducts(ProductRecommendRequestData data) {
+	public List<ProductDto> getProducts(ProductRecommendRequestDto data) {
 		int no = data.getPetNo();
 		String category = data.getCategory();
+		if (category.equals("feed"))
+			return mapper.findFeeds(no, category);
 		return mapper.findByPetNoAndCategory(no, category);
+	}
+
+	public ProductDto getProduct(int no) {
+		return mapper.findByNo(no);
 	}
 
 }

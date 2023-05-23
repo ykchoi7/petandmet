@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductDto {
 
-	private int no;
-	private String name;
-	private int price;
-	private String category;
-	private String image;
-	private boolean patella;
-	private boolean tooth;
-	private boolean skin;
-	private boolean scaling;
+	private int no; // 기본키 PK
+	private String name; // 상품명
+	private int price; // 가격
+	private String category; // 상품 종류
+	private String image; // 사진
+	private boolean patella; // 슬개골, 탈구질환
+	private boolean tooth; // 구강질환
+	private boolean skin; // 피부질환
+	private boolean scaling; // 스켈링
 		
 }
