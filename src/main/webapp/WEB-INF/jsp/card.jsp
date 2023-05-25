@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +116,6 @@
 						</colgroup>
 						<tbody id="cardList">
 							<c:forEach items="${cards}" var="card">
-
 								<tr class="item" id=itemlist>
 									<td class="image"><img src="${card.image}"
 										style="width: 200px; height: 120px;" /></td>
@@ -123,11 +123,12 @@
 										<div class="title">
 											<a href="/card/${card.no}"><strong>${card.name}</strong></a>
 										</div>
-										<div class="price">연회비 ${card.annual_fee} 원</div>
+
+										<div class="price">연회비 <fmt:formatNumber value="${card.annual_fee}" pattern="#,###"></fmt:formatNumber>원</div>
 										<div class="discount">
-											병원 할인율 ${card.hospital_discount} % | 쇼핑몰 할인율
-											${card.shopping_discount} % <br> 쇼핑몰 적립율
-											${card.acc_rate} %
+											병원 할인율 ${card.hospital_discount}%  |  쇼핑몰 할인율
+											${card.shopping_discount}% <br> 쇼핑몰 적립율
+											${card.acc_rate}%
 										</div>
 									</td>
 									<td class="benefits">
@@ -160,6 +161,7 @@
 			console.log(result);
 			$('#cardList').html('')
 			$.each(result, function(index, r) {
+				let fee = parseInt(`${'${r.annual_fee}'}`).toLocaleString('ko-KR');
 				var item_el=
 				`<tr class='item'>
 					<td class='image'>
@@ -167,8 +169,8 @@
 					</td>
 					<td class='detail'>
 						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
-						<div class='price'>연회비 ${'${r.annual_fee}'}원</div>
-						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+						<div class='price'>연회비  ${'${fee}'}원</div>
+						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
 					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
 				</tr>`;
@@ -190,6 +192,7 @@
 			console.log(result);
 			$('#cardList').html('')
 			$.each(result, function(index, r) {
+				let fee = parseInt(`${'${r.annual_fee}'}`).toLocaleString('ko-KR');
 				var item_el=
 				`<tr class='item'>
 					<td class='image'>
@@ -197,8 +200,8 @@
 					</td>
 					<td class='detail'>
 						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
-						<div class='price'>연회비 ${'${r.annual_fee}'}원</div>
-						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+						<div class='price'>연회비  ${'${fee}'}원</div>
+						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
 					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
 				</tr>`;
@@ -220,6 +223,7 @@
 			console.log(result);
 			$('#cardList').html('')
 			$.each(result, function(index, r) {
+				let fee = parseInt(`${'${r.annual_fee}'}`).toLocaleString('ko-KR');
 				var item_el=
 				`<tr class='item'>
 					<td class='image'>
@@ -227,8 +231,8 @@
 					</td>
 					<td class='detail'>
 						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
-						<div class='price'>연회비 ${'${r.annual_fee}'}원</div>
-						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+						<div class='price'>연회비 ${'${fee}'}원</div>
+						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
 					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
 				</tr>`;
@@ -250,6 +254,7 @@
 			console.log(result);
 			$('#cardList').html('')
 			$.each(result, function(index, r) {
+				let fee = parseInt(`${'${r.annual_fee}'}`).toLocaleString('ko-KR');
 				var item_el=
 				`<tr class='item'>
 					<td class='image'>
@@ -257,8 +262,8 @@
 					</td>
 					<td class='detail'>
 						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
-						<div class='price'>연회비 ${'${r.annual_fee}'}원</div>
-						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br> 쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+						<div class='price'>연회비  ${'${fee}'}원</div>
+						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br> 쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
 					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
 				</tr>`;

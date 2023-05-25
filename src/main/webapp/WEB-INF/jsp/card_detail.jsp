@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -101,7 +102,7 @@
 				    <div>
 						<h5>요약</h5>
 						<div class="price">
-							연회비 ${cdto.annual_fee} 원
+							연회비 <fmt:formatNumber value="${cdto.annual_fee}" pattern="#,###"></fmt:formatNumber> 원
 						</div>
 						<div class="discount" >
 							동물병원 방문시, ${cdto.hospital_discount}% 결제일 할인<br>
@@ -140,69 +141,6 @@
 		  		</div>
 		 	</div>
 		</div> 
-  	
-
-  	
-  		
-  		
-      <%-- <div class="col-lg-4">
-      <div class="container">
-      			<div>
-                 <img alt="${cdto.name}" src="${cdto.image}" style='width: 360px; height : 250px;'>
-                </div>
-      </div>
-      
-      
-      <div class="container">   
-            <div class="card-info">
-              <h3>카드 상세 정보</h3>
-            <td class="detail">
-				<div class="title">
-					${cdto.name}
-				</div>
-				<div class="price">
-					연회비 ${cdto.annual_fee} 원
-				</div>
-				<div class="discount">
-					병원 할인율 ${cdto.hospital_discount} % | 쇼핑몰 할인율 ${cdto.shopping_discount} %  <br>  쇼핑몰 적립율 ${cdto.acc_rate} %
-				</div>
-			</td>
-			<td class="benefits">
-				<div class="good">
-					${cdto.benefits}
-				</div>
-			</td>
-			</div>
-			</div>
-		
-			
-			<div class="container">		
-            <div class="card-sub" id=cardsub>
-              <h2>부가 혜택</h2>
-             <c:choose>
-             	<c:when test="${cdto.insurance_reg eq true}">
-             	<p>동물 단체 보험 가입 보장</p>
-             	</c:when>
-             	<c:otherwise>
-             	<p>동물 단체 보험 가입 미보장</p>
-             	</c:otherwise>
-             </c:choose>
-             
-             <c:choose>
-             	<c:when test="${cdto.fund eq true}">
-             	<p>동물 보호 공익기금 조성</p>
-             	</c:when>
-             	<c:otherwise>
-             	<p>동물 보호 공익기금 미조성</p>
-             	</c:otherwise>
-              </c:choose>
-            </div>
-            </div>
-            </div> --%> 
-           <!-- </div>
-           
-       </div>
-      </div> -->
      </section>
 <!-- End Card Details Section -->
 	

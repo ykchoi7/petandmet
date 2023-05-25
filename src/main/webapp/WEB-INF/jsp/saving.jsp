@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -102,15 +103,16 @@
 											<strong>${saving.name}</strong> 
 										</div>
 										<div class="discount">
-											최소 기한 ${saving.period} 개월 <br>
-											월 저축액 최소 ${saving.min_saving_amount*1000} 원 | 월 저축액 최소 ${saving.max_saving_amount*1000} 원
+											최소 기한 ${saving.period}개월 <br>
+											월 저축액 최소 <fmt:formatNumber value="${saving.min_saving_amount*1000}" pattern="#,###"></fmt:formatNumber>원  | 
+											월 저축액 최소 <fmt:formatNumber value="${saving.max_saving_amount*1000}" pattern="#,###"></fmt:formatNumber>원 
 										</div>
 									</td>
 									<td class="interest">
 										<div class="interest">
-											최대 금리 ${saving.interest_rate+saving.prime_rate} %
+											최대 금리 ${saving.interest_rate+saving.prime_rate}%
 										</div>
-										<a href="${saving.info_url}">더 많은 정보 확인하기</a>
+										<a href="${saving.info_url}"><strong>자세히 보기</strong></a>
 									</td>
 								</tr>
 							</c:forEach>
