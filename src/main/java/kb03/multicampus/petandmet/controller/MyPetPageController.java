@@ -10,8 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -47,4 +46,32 @@ public class MyPetPageController {
         return "mypetpage";
     }
 
+    @GetMapping("/mypetregister")
+    public String mypetregister(){
+        return "mypetregister";
+    }
+    @PostMapping("/mypetregister")
+    public String post_mypetregister(Model model, HttpServletRequest req,
+                                     @RequestParam("id") String id,
+                                     @RequestParam("pet_type") String pet_type,
+                                     @RequestParam("name") String name,
+                                     @RequestParam("date") String date,
+                                     @RequestParam("isNeutered") boolean isNeutered,
+                                     @RequestParam("pet_image") String pet_image,
+                                     @RequestParam("breedSelect") String breed,
+                                     @RequestParam("patella") boolean patella,
+                                     @RequestParam("tooth") boolean tooth,
+                                     @RequestParam("skin") boolean skin,
+                                     @RequestParam("scaling") boolean scaling
+                                     ){
+        HttpSession session = req.getSession();
+        Object user = session.getAttribute("user");//user찾아옴
+        UserDto u = (UserDto) user;
+        int uid = u.getNo();//펫 주인 찾아옴
+        List<PetDto> pets = petMapper.findByUid(uid);
+        model.addAttribute("pets",pets);
+
+
+        return "";
+    }
 }

@@ -3,10 +3,41 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
-<html>
 <head>
     <meta charset="UTF-8">
-    <title>페트와 메트</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Pet&Met</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="../../resources/assets/img/favicon.png" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic-coding.css" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../resources/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../resources/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../resources/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../../resources/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../../resources/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../../resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../../resources/assets/css/style.css" rel="stylesheet">
+    <!-- html 분리 위함 -->
+    <script src="../../resources/assets/js/includeHTML.js"></script>
+    <!-- =======================================================
+    * Template Name: Gp
+    * Updated: Mar 10 2023 with Bootstrap v5.2.3
+    * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
     <style>
         th,td{
             border: 1px solid #444444;
@@ -15,59 +46,157 @@
     </style>
 </head>
 <body>
-<h1>마이 펫 페이지</h1>
-마이 펫은 몇 마리? = ${pets.size()}
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header><!-- End Header -->
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>마이 펫 페이지</h2>
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li>마이 펫 페이지</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <section class="inner-page">
+        <div class="container" style="text-align:center;">
+
 <c:forEach items = "${pets}" var = "pet">
-    <table>
+    <table  style = "margin: 0 auto;">
         <tr>
-            <td rowspan="3">사진</td>
-        </tr>
-        <tr>
-            <td>사진 업로드</td>
-        </tr>
-        <tr>
-            <td>사진 삭제</td>
+            <td>
+                <img src = "${pet.pet_image}" style ="width:150px;height:150px"><br>
+
+            </td>
         </tr>
     </table>
 
-    <table style="border: black; align:center;">
+    <table style="align:center; margin: 0 auto">
         <tr>
-            <td>이름</td>
+            <td class = "thead">이름</td>
             <td>${pet.name}</td>
         </tr>
         <tr>
-            <td>동물 종류</td>
+            <td class = "thead">동물 종류</td>
             <td>${pet.pet_type}</td>
         </tr>
         <tr>
-            <td>품종</td>
+            <td class = "thead">품종</td>
             <td>${pet.breed}</td>
         </tr>
         <tr>
-            <td>등록번호</td>
-            <td>987654321</td>
+            <td class = "thead">등록번호</td>
+            <td>${pet.id}</td>
         </tr>
         <tr>
-            <td>생년월일</td>
-            <td>2023.01.01</td>
+            <td class = "thead">생년월일</td>
+            <td>${pet.birth}</td>
         </tr>
         <tr>
-            <td>성별</td>
-            <td>여</td>
+            <td class = "thead">성별</td>
+            <td>${pet.gender}</td>
         </tr>
         <tr>
-            <td>중성화 여부</td>
-            <td>NO</td>
+            <td class = "thead">몸무게</td>
+            <td>${pet.weight}</td>
         </tr>
         <tr>
-            <td>과거 병력</td>
-            <td>피부 질환</td>
+            <td class = "thead">중성화 여부</td>
+            <td>
+                <c:if test="${pet.isNeutered()==true}">
+                    O
+                </c:if>
+                <c:if test="${pet.isNeutered()==false}">
+                    X
+                </c:if>
+            </td>
         </tr>
-
+        <tr>
+            <td class = "thead">슬개골, 탈구질환 여부</td>
+            <td>
+                <c:if test="${pet.patella==true}">
+                    O
+                </c:if>
+                <c:if test="${pet.patella==false}">
+                    X
+                </c:if>
+            </td>
+        </tr>
+        <tr>
+            <td class = "thead">구강질환 여부</td>
+            <td>
+                <c:if test="${pet.tooth==true}">
+                    O
+                </c:if>
+                <c:if test="${pet.tooth==false}">
+                    X
+                </c:if>
+            </td>
+        </tr>
+        <tr>
+            <td class = "thead">피부질환 여부</td>
+            <td>
+                <c:if test="${pet.skin==true}">
+                    O
+                </c:if>
+                <c:if test="${pet.skin==false}">
+                    X
+                </c:if>
+            </td>
+        </tr>
+        <tr>
+            <td class = "thead">스켈링 여부</td>
+            <td>
+                <c:if test="${pet.scaling==true}">
+                    O
+                </c:if>
+                <c:if test="${pet.scaling==false}">
+                    X
+                </c:if>
+            </td>
+        </tr>
     </table>
 </c:forEach>
-<button>마이펫 정보 수정 >> </button>
-<br>
-<button>마이펫 추가 / 삭제 >> </button>
+            <br>
+    <button class="get-started-btn scrollto">마이펫 정보 수정 </button>
+    <button class="get-started-btn scrollto" onclick="location.href = 'mypetpage/mypetregister'">마이펫 추가 </button>
+    <button class="get-started-btn scrollto">마이펫 삭제 </button>
+            <br>
+        </div>
+    </section>
+
+
+</main><!-- End #main -->
+
+
+<footer id="footer" include-html="../../resources/assets/html/footer.html"></footer>
+
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../../resources/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="../../resources/assets/vendor/aos/aos.js"></script>
+<script src="../../resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="../../resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="../../resources/assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../resources/assets/js/main.js"></script>
+
 </body>
+
+<script>
+    includeHTML();
+</script>
 </html>
