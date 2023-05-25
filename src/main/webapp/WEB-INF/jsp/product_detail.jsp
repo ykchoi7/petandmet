@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,6 +65,7 @@
 
         </div>
     </section><!-- End Breadcrumbs -->
+    
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
@@ -85,11 +87,6 @@
             <div class="portfolio-info">
               <h3>${dto.name}</h3>
               <ul>
-<%-- 	                <li><strong>종류</strong>: <c:choose>
-				<c:when test="${dto.category == 'feed'}">사료</c:when>
-				<c:when test="${dto.category == 'snack'}">간식</c:when>
-				<c:when test="${dto.category == 'toy'}">장난감</c:when>
-				</c:choose></li> --%>
                 <li><strong>상품 종류</strong> : ${dto.category}</li>
                 <c:if test="${dto.category eq '사료'}">
                 <li><strong>사료 종류</strong> : ${dto.feed_type}
@@ -113,10 +110,12 @@
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>상품 </h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+              <h2>상품 후기 (${fn:length(reviews)})</h2>
+              <c:forEach items="${reviews}" var="review">
+              	<p><strong>${review.uname}</strong></p>
+              	<p>평점 <strong>${review.rate}</strong></p>
+              	<p>${review.content}</p>
+              </c:forEach>
             </div>
           </div>
 
