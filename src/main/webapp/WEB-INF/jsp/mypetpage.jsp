@@ -31,6 +31,8 @@
     <link href="../../resources/assets/css/style.css" rel="stylesheet">
     <!-- html 분리 위함 -->
     <script src="../../resources/assets/js/includeHTML.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- =======================================================
     * Template Name: Gp
     * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -65,106 +67,82 @@
 
         </div>
     </section><!-- End Breadcrumbs -->
-    <section class="inner-page">
-        <div class="container" style="text-align:center;">
+    <section class="inner-page" >
+        <div class="container pet" style="text-align:center; ">
+            <label for="petSelect">반려동물 선택</label>
+            <select id="petSelect">
+                <c:forEach items="${pets}" var="pet">
+                    <option value="${pet.no}">${pet.name}</option>
+                </c:forEach>
+            </select>
+            <br><br>
+            <div style = "margin: 0 auto; ">
+                <table style = "margin: 0 auto;" id="msg1"></table><br>
+                <table style = "margin: 0 auto;" id="msg"></table>
+            </div>
+<br>
+            <script type="text/javascript">
+                window.onload = function () {
+                    var petSelect = document.querySelector('#petSelect')
+                    var no = petSelect.value;
 
-<c:forEach items = "${pets}" var = "pet">
-    <table  style = "margin: 0 auto;">
-        <tr>
-            <td>
-                <img src = "${pet.pet_image}" style ="width:150px;height:150px"><br>
-
-            </td>
-        </tr>
-    </table>
-
-    <table style="align:center; margin: 0 auto">
-        <tr>
-            <td class = "thead">이름</td>
-            <td>${pet.name}</td>
-        </tr>
-        <tr>
-            <td class = "thead">동물 종류</td>
-            <td>${pet.pet_type}</td>
-        </tr>
-        <tr>
-            <td class = "thead">품종</td>
-            <td>${pet.breed}</td>
-        </tr>
-        <tr>
-            <td class = "thead">등록번호</td>
-            <td>${pet.id}</td>
-        </tr>
-        <tr>
-            <td class = "thead">생년월일</td>
-            <td>${pet.birth}</td>
-        </tr>
-        <tr>
-            <td class = "thead">성별</td>
-            <td>${pet.gender}</td>
-        </tr>
-        <tr>
-            <td class = "thead">몸무게</td>
-            <td>${pet.weight}</td>
-        </tr>
-        <tr>
-            <td class = "thead">중성화 여부</td>
-            <td>
-                <c:if test="${pet.isNeutered()==true}">
-                    O
-                </c:if>
-                <c:if test="${pet.isNeutered()==false}">
-                    X
-                </c:if>
-            </td>
-        </tr>
-        <tr>
-            <td class = "thead">슬개골, 탈구질환 여부</td>
-            <td>
-                <c:if test="${pet.patella==true}">
-                    O
-                </c:if>
-                <c:if test="${pet.patella==false}">
-                    X
-                </c:if>
-            </td>
-        </tr>
-        <tr>
-            <td class = "thead">구강질환 여부</td>
-            <td>
-                <c:if test="${pet.tooth==true}">
-                    O
-                </c:if>
-                <c:if test="${pet.tooth==false}">
-                    X
-                </c:if>
-            </td>
-        </tr>
-        <tr>
-            <td class = "thead">피부질환 여부</td>
-            <td>
-                <c:if test="${pet.skin==true}">
-                    O
-                </c:if>
-                <c:if test="${pet.skin==false}">
-                    X
-                </c:if>
-            </td>
-        </tr>
-        <tr>
-            <td class = "thead">스켈링 여부</td>
-            <td>
-                <c:if test="${pet.scaling==true}">
-                    O
-                </c:if>
-                <c:if test="${pet.scaling==false}">
-                    X
-                </c:if>
-            </td>
-        </tr>
-    </table>
-</c:forEach>
-            <br>
+                    function handleSelectedOption(e) {
+                        no = petSelect.value;
+                        ajax(no)
+                        console.log(no);
+                    }
+                    function ajax(no){
+                        var options = {
+                            url : 'mypetpage',
+                            type : 'POST',
+                            data : {
+                                no: no
+                        },
+                        success: function(data){
+                            var msg = $('#msg')
+                            var msg1 = $('#msg1')
+                            msg.html('')
+                            msg1.html('')
+                            msg1.append('<tr>')
+                            msg1.append('<img src = "'+data.pet_image+'" style ="width:150px;height:150px"><br></tr>')
+                            msg.append('<tr><td class = "thead">이름</td><td id = "name">'+data.name+'</td></tr>')
+                            msg.append('<tr><td class = "thead">동물 종류</td><td id = "pet_type">'+data.pet_type+'</td></tr>')
+                            msg.append('<tr><td class = "thead">품종</td><td id = "breed">'+data.breed+'</td></tr>')
+                            msg.append('<tr><td class = "thead">등록번호</td><td id = "id">'+data.id+'</td></tr>')
+                            msg.append('<tr><td class = "thead">생년월일</td><td id = "birth">'+data.birth+'</td></tr>')
+                            msg.append('<tr><td class = "thead">성별</td><td id = "gender">'+data.gender+'</td></tr>')
+                            msg.append('<tr><td class = "thead">몸무게</td><td>'+data.weight+'</td></tr>')
+                            console.log(data)
+                            if(data.neutered == true){
+                                msg.append('<tr><td class = "thead">슬개골, 탈구질환 여부</td><td id = "patella"> O </td></tr>')
+                            }else{
+                                msg.append('<tr><td class = "thead">슬개골, 탈구질환 여부</td><td id = "patella"> X </td></tr>')
+                            }
+                            if(data.tooth == true){
+                                msg.append('<tr><td class = "thead">구강질환 여부</td><td id = "tooth"> O </td></tr>')
+                            }else{
+                                msg.append('<tr><td class = "thead">구강질환 여부</td><td id = "tooth"> X </td></tr>')
+                            }
+                            if(data.skin == true){
+                                msg.append('<tr><td class = "thead">피부질환 여부</td><td id = "skin"> O </td></tr>')
+                            }else{
+                                msg.append('<tr><td class = "thead">피부질환 여부</td><td id = "skin"> X </td></tr>')
+                            }
+                            if(data.scaling == true){
+                                msg.append('<tr><td class = "thead">스케일링 여부</td><td id = "scaling"> O </td></tr>')
+                            }else{
+                                msg.append('<tr><td class = "thead">스케일링 여부</td><td id = "scaling"> X </td></tr>')
+                            }
+                        },
+                            error:function(){
+                            }
+                        }
+                        $.ajax(options)
+                    }
+                    petSelect.onchange = handleSelectedOption;
+                    handleSelectedOption();
+                }
+            </script>
     <button class="get-started-btn scrollto">마이펫 정보 수정 </button>
     <button class="get-started-btn scrollto" onclick="location.href = 'mypetpage/mypetregister'">마이펫 추가 </button>
     <button class="get-started-btn scrollto">마이펫 삭제 </button>
