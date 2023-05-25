@@ -12,66 +12,180 @@
 	<h1>카드 추천</h1>
 	<button type = "button" onclick = "location.href = 'insurances'";>보험 추천 </button>
 	<button type = "button" onclick = "location.href = 'card'";>카드 추천 </button>
-	<button type = "button" onclick = "location.href = 'savings'";>적금 추천</button> <br>
-	<button id="card">카드전체보기</button>
+	<button type = "button" onclick = "location.href = 'saving'";>적금 추천</button> <br>
 	<button id="annualfee">연회비낮은순</button>
 	<button id="hospital">병원비할인율높은순</button>
 	<button id="shopping">쇼핑몰할인율높은순</button>
-	<button id="acc">쇼핑몰적립율높은순</button>
-	<table border="1">
-		<tr id="title">
-			<th>이미지</th>
-			<th>카드이름</th>
-			<th>카드회사</th>
-			<th>연회비</th>
-			<th>혜택</th>
-			<th>동물병원 할인율</th>
-			<th>애견용품 쇼핑몰 할인율</th>
-			<th>쇼핑몰 적립율</th>
-			<th>단체보험 가입 여부</th>
-			<th>동물보호 공익기금 여부</th>
-		</tr>
+	<button id="shopsave" >쇼핑몰적립율높은순</button>
+	<div class="list_card">
+					<table class="card_list">
+						<colgroup>
+							<col width="200" >
+							<col width="500">
+							<col width="500">
+							<col width="*">
+							<col width="*">
+						</colgroup>
+						<tbody id="cardList">
+							<c:forEach items="${cards}" var="card">
+								<tr class="item">
+									<td class="image">
+										<img src="${card.image}" style="width: 200px; height:120px;"/>
+									</td>
+									<td class="detail">
+										<div class="title">
+											${card.name}
+										</div>
+										<div class="price">
+											연회비 ${card.annual_fee} 원
+										</div>
+										<div class="discount">
+											병원 할인율 ${card.hospital_discount} % | 쇼핑몰 할인율 ${card.shopping_discount} %  <br> | 쇼핑몰 적립율 ${card.acc_rate} %
+										</div>
+									</td>
+									<td class="benefits">
+										<div class="good">
+											${card.benefits}
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					
+					</table>
+	</div>		
 	
-	<c:forEach items="${cards}" var="card">
-
-			<tr class="item">			
-				<td><img src="${card.image}" style="height:auto;"></td>
-				<td>${card.name}</td>
-				<td>${card.company}</td>
-				<td>${card.annual_fee}</td>
-				<td>${card.benefits}</td>
-				<td>${card.hospital_dis}</td>
-				<td>${card.shopping_dis}</td>
-				<td>${card.acc_rate}</td>
-				<td>${card.insurance_reg}</td>
-				<td>${card.fund}</td>
-			</tr>
-		</c:forEach>
-
-	</table>
-	<!-- <script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script>
-
-		let type="";
 	
-	$('#annual_fee_desc').on('click', function(){
-			$.ajax({
-				type: 'GET',
-				url: '/card/annual_fee/'+type,
-				dataType: 'json'
-			}).done(function(result){
-				console.log(result);
-				$('.item').remove();
-				for(var r of result){
-					var item_el= "<tr class='item'><td>"+r.id+"</td><td>"+r.name+"</td><td>"+r.price+"</td><td>"+r.orderCount+"</td><td>"+r.type+"</td></tr>";
-					$('#title').after(item_el);
-				}
-			}).fail(function(result){
-				console.log('에러');
-				console.log(result);
-			});;
-		});
-	</script> -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+		
+	
+	
+	<script type="text/javascript">
+	let type = "";
+	//연회비낮은순
+	$('#annualfee').on('click',function(){
+		$.ajax({
+			type: 'GET',
+			url: '/card/annual',
+			dataType: 'json'
+		}).done(function(result){
+			console.log(result);
+			$('#cardList').html('')
+			$.each(result, function(index, r) {
+				var item_el=
+				`<tr class='item'>
+					<td class='image'>
+						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
+					</td>
+					<td class='detail'>
+						<div class='title'>${'${r.name}'}</div>
+						<div class='price'>${'${r.annual_fee}'}원</div>
+						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br> | 쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+					</td>
+					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
+				</tr>`;
+				$('#cardList').append(item_el);
+			})
+		}).fail(function(result){
+			console.log('에러');
+			console.log(result);
+		});;
+	});
+	
+	//병원할인율 높은순
+	$('#hospital').on('click',function(){
+		$.ajax({
+			type: 'GET',
+			url: '/card/hospital',
+			dataType: 'json'
+		}).done(function(result){
+			console.log(result);
+			$('#cardList').html('')
+			$.each(result, function(index, r) {
+				var item_el=
+				`<tr class='item'>
+					<td class='image'>
+						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
+					</td>
+					<td class='detail'>
+						<div class='title'>${'${r.name}'}</div>
+						<div class='price'>${'${r.annual_fee}'}원</div>
+						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br> | 쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+					</td>
+					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
+				</tr>`;
+				$('#cardList').append(item_el);
+			})
+		}).fail(function(result){
+			console.log('에러');
+			console.log(result);
+		});;
+	});
+	
+	//쇼핑할인율높은순
+	$('#shopping').on('click',function(){
+		$.ajax({
+			type: 'GET',
+			url: '/card/shopping',
+			dataType: 'json'
+		}).done(function(result){
+			console.log(result);
+			$('#cardList').html('')
+			$.each(result, function(index, r) {
+				var item_el=
+				`<tr class='item'>
+					<td class='image'>
+						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
+					</td>
+					<td class='detail'>
+						<div class='title'>${'${r.name}'}</div>
+						<div class='price'>${'${r.annual_fee}'}원</div>
+						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br> | 쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+					</td>
+					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
+				</tr>`;
+				$('#cardList').append(item_el);
+			})
+		}).fail(function(result){
+			console.log('에러');
+			console.log(result);
+		});;
+	});
+	
+	//쇼핑적립율높은순
+	$('#shopsave').on('click',function(){
+		$.ajax({
+			type: 'GET',
+			url: '/card/accrate',
+			dataType: 'json'
+		}).done(function(result){
+			console.log(result);
+			$('#cardList').html('')
+			$.each(result, function(index, r) {
+				var item_el=
+				`<tr class='item'>
+					<td class='image'>
+						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
+					</td>
+					<td class='detail'>
+						<div class='title'>${'${r.name}'}</div>
+						<div class='price'>${'${r.annual_fee}'}원</div>
+						<div class='discount'>병원 할인율${'${r.hospital_discount}'} % | 쇼핑몰 할인율 ${'${r.shopping_discount}'} %  <br> | 쇼핑몰 적립율 ${'${r.acc_rate}'} %</div>
+					</td>
+					<td class='benefits'><div class='good'>${'${r.benefits}'}</div></td>
+				</tr>`;
+				$('#cardList').append(item_el);
+			})
+		}).fail(function(result){
+			console.log('에러');
+			console.log(result);
+		});;
+	});
+	
+	</script> 
+
+
 </body>
 </html>

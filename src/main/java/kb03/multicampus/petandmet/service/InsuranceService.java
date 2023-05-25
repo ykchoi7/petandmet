@@ -22,7 +22,7 @@ public class InsuranceService {
         return mapper.findAll();
     }
     
-    public List<Map<String, Object>> getBreedInsurance(Object breed) {
+    public List<Map<String, Object>> getBreedInsurance(String breed) {
     	return mapper.getBreedInsurance(breed);
     }
 

@@ -16,4 +16,26 @@ public class CardService {
     public List<CardDto> findAll(){
         return cardmapper.findAll();
     }
+
+
+	public List<CardDto> orderbyannual() {
+		return cardmapper.orderbyannual();
+	}
+
+
+	public List<CardDto> orderbyhospital() {
+		return cardmapper.orderbyhospital();
+	}
+
+
+	public List<CardDto> orderbyshopping() {
+		return cardmapper.orderbyshopping();
+	}
+
+
+	public List<CardDto> orderbyaccrate() {
+		return cardmapper.orderbyaccrate();
+	}
+    
+	
 }

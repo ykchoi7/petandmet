@@ -57,4 +57,5 @@ public class MainController {
 //	public String insurance() {
 //		return "insurance";
 //	}
+
 }

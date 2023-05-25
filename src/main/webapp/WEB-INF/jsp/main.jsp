@@ -49,7 +49,7 @@
 <header id="header" class="fixed-top ">
 	<div class="container d-flex align-items-center justify-content-lg-between">
 
-		<a href="index.html" class="logo ">
+		<a href="/" class="logo ">
 			<img src="../../resources/assets/img/logo.png" alt="" style="height:50px; width: 180px;">
 		</a>
 
@@ -383,7 +383,7 @@
 
 </main><!-- End #main -->
 
-<footer id="footer" include-html="footer.html"></footer>
+<footer id="footer" include-html="../../resources/assets/html/footer.html"></footer>
 
 <div id="preloader"></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
