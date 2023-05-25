@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
+
 
 @Controller
 @RequestMapping("/mypetpage")
@@ -46,6 +50,12 @@ public class MyPetPageController {
         return "mypetpage";
     }
 
+    @ResponseBody
+    @PostMapping
+    public PetDto getPet(int no){
+        PetDto pet = petMapper.findByNo(no);
+        return pet;
+    }
     @GetMapping("/mypetregister")
     public String mypetregister(){
         return "mypetregister";
