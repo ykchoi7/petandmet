@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>마이 펫 등록</h1>
-<form method = "post" action="/mypetpage">
+<form method = "post" action="/mypetpage/mypetregister">
     <label>등록번호 <input type="text" name="id"></label><br>
     <label>반려동물 종류
         <input type="radio" name="pet_type" value="고양이" id="catRadio">
@@ -22,19 +22,19 @@
     </label>
 
     <label><div id="breedSelection">
-        <select id="breedSelect"></select>
+        <select name = "breedSelect" id="breedSelect"></select>
     </div></label>
 
     <label>이름<input type="text" name="name"></label><br>
     <label>생년월일 <input type="date" name="birth"></label><br>
-    <label>몸무게 <input type="text" name="weight"></label>kg<br>
+    <label>몸무게 <input type="number" name="weight"></label>kg<br>
     <label>성별
         <input type="radio" name="gender" value="male" id="male">수컷
         <input type="radio" name="gender" value="female" id="female">암컷
     </label><br>
     <label>중성화 여부
-        <input type="radio" name="isneutered" value="true" id="neutered"> O
-        <input type="radio" name="isneutered" value="false" id="no_neutered"> X
+        <input type="radio" name="isNeutered" value="true" id="neutered"> O
+        <input type="radio" name="isNeutered" value="false" id="no_neutered"> X
     </label><br>
     <label>슬개골, 탈구질환 여부
         <input type="radio" name="patella" value="true" id="patella"> O

@@ -65,9 +65,10 @@ public class MyPetPageController {
                                      @RequestParam("id") String id,
                                      @RequestParam("pet_type") String pet_type,
                                      @RequestParam("name") String name,
-                                     @RequestParam("date") String date,
+                                     @RequestParam("birth") String birth,
+                                     @RequestParam("weight") int weight,
+                                     @RequestParam("gender") String gender,
                                      @RequestParam("isNeutered") boolean isNeutered,
-                                     @RequestParam("pet_image") String pet_image,
                                      @RequestParam("breedSelect") String breed,
                                      @RequestParam("patella") boolean patella,
                                      @RequestParam("tooth") boolean tooth,
@@ -78,10 +79,10 @@ public class MyPetPageController {
         Object user = session.getAttribute("user");//user찾아옴
         UserDto u = (UserDto) user;
         int uid = u.getNo();//펫 주인 찾아옴
-        List<PetDto> pets = petMapper.findByUid(uid);
-        model.addAttribute("pets",pets);
+        int iid = Integer.parseInt(id);
+        String pet_image = "https://src.hidoc.co.kr/image/lib/2022/5/12/1652337370806_0.jpg";
+        petMapper.insertPet(uid,iid,pet_type,name,birth,weight,gender,isNeutered,"https://image.utoimage.com/preview/cp872722/2022/12/202212008462_500.jpg",breed,patella,tooth,skin,scaling);
 
-
-        return "";
+        return "redirect:/mypetpage";
     }
 }

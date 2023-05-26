@@ -17,6 +17,7 @@ public interface PetMapper {
     @Select("select * from pet where uid = #{uid} order by uid desc")
     List<PetDto> findByUid(@Param("uid") int uid);
 
-    @Insert("insert into pet(null,#{uid},#{id},#{pet_type},#{name},#{birth},#{gender},#{isNeutered},#{pet_image},#{breed},#{patella},#{tooth},#{skin},#{scaling})")
-    int insertPet(@Param("no") int no);
+    @Insert("insert into pet values(null,#{uid},#{id},#{pet_type},#{name},#{birth},#{gender},#{weight}, #{isNeutered},#{pet_image},#{breed},#{patella},#{tooth},#{skin},#{scaling})")
+    void insertPet
+    (@Param("uid") int uid,@Param("id") int id,@Param("pet_type") String pet_type,@Param("name") String name,@Param("birth") String birth,@Param("weight") int weight,@Param("gender") String gender,@Param("isNeutered") boolean isNeutered,@Param("pet_image") String pet_image,@Param("breed") String breed,@Param("patella") boolean patella,@Param("tooth") boolean tooth,@Param("skin") boolean skin,@Param("scaling") boolean scaling);
 }
