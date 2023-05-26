@@ -41,6 +41,21 @@ public class MainController {
 	public String signup() {
 		return "signup";
 	}
-	
+
+	@GetMapping("/chat_index")
+	public String chat_index() {
+		return "chat_index";
+	}
+
+
+//	@GetMapping("/insurances")
+//	public String insurances() {
+//		return "insurances";
+//	}
+//
+//	@GetMapping("/insurance")
+//	public String insurance() {
+//		return "insurance";
+//	}
 
 }

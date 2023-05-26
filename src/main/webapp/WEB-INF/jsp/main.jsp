@@ -92,7 +92,7 @@
 			<div class="col-xl-2 col-md-4">
 				<div class="icon-box">
 					<i class="ri-database-2-line"></i>
-					<h3><a href="">Chat</a></h3>
+					<h3><a href="chat_index">Chat</a></h3>
 				</div>
 			</div>
 		</div>
@@ -156,7 +156,7 @@
 				<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
 					<div class="icon-box">
 						<div class="icon"><i class="bi bi-chat-heart"></i></div>
-						<h4><a href="">상담</a></h4>
+						<h4><a href="chat_index">상담</a></h4>
 						<p> 온라인 채팅 상담 - 보호자의 의사 결정 도움 및 반려동물 건강관리</p>
 					</div>
 				</div>
