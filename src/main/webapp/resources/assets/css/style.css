@@ -1620,3 +1620,21 @@ td {
   background: #fff;
 }
 
+#petSelect {
+	width: 10rem;
+    height: 5rem;    
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
+    border: 0.2rem solid #ffc451;
+    box-shadow: rgba(255, 170, 0, 0.16) 0px 0px 1rem 0px;
+    transition: all 0.1s ease 0s;
+    cursor: pointer;
+    vertical-align: top;
+    overflow: visible;
+    position: relative;
+    text-align-last: center;
+	text-align: center;
+	-ms-text-align-last: center;
+	-moz-text-align-last: center;
+}

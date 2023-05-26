@@ -192,7 +192,7 @@
 			<div class="company"><p>${i.company}</p></div>
 			<hr style="width: 100%; border-top: 0.5px solid black; margin-top:2rem;">
 			
-			<div class="ratio"><p>보장비율: ${i.coverage_ratio*100}% </p></div>
+			<div class="ratio"><p>보장비율: <fmt:parseNumber integerOnly="true" value="${i.coverage_ratio*100}}"/>% </p></div>
 			<div class="annual"><p style="font-size: 15px">1년 최대 보장 금액: </p>
 			<fmt:formatNumber type="number" maxFractionDigits="0" value="${i.annual_limit}"/>원</div>
 			<div class="daily"><p style="font-size: 15px">1일 최대 보장 금액: </p>
@@ -200,8 +200,8 @@
 			<hr style="width: 100%; border-top: 0.5px solid black;">
 			
 			<div class="breed"><p>품종: <br>${i.breed}</p></div>
-			<div class="age"><p>대상 연령: <br>${i.min_age}개월 ~ ${i.max_age/12}세  </p></div>
-			<div class="period"><p>기간: <br>${i.period/12}년 </p></div>
+			<div class="age"><p>대상 연령: <br>${i.min_age}개월 ~ <fmt:parseNumber integerOnly="true" value="${i.max_age/12}"/>세 </p></div>
+			<div class="period"><p>기간: <br><fmt:parseNumber integerOnly="true" value="${i.period/12}"/>년 </p></div>
 			<div class="benefits"><p>혜택: <br>${i.benefits} </p></div>
 			
 			<div class="patella">슬개골 보장 여부:
