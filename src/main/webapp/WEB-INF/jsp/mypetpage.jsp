@@ -45,6 +45,20 @@
             border: 1px solid #444444;
         }
 
+        #petSelect {
+            width: 10rem;
+            height: 3rem;
+            margin: 10px;
+            visibility: visible;
+            color: rgb(51, 51, 51);
+            flex: 1 1 auto;
+            display: inline-grid;
+            grid-area: 1 / 1 / 2 / 3;
+            grid-template-columns: 0px min-content;
+            box-sizing: border-box;
+            padding: 0.5rem 0.5rem 0.5rem 0px;
+        }
+
     </style>
 </head>
 <body>
