@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SavingsDto {
-	private String image,name,bank;
+	private String image,name,bank,info_url;
 	private double interest_rate,prime_rate;
 	private int no,period, min_saving_amount, max_saving_amount;
 	 

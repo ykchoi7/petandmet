@@ -3,7 +3,9 @@ package kb03.multicampus.petandmet.controller;
 import kb03.multicampus.petandmet.dto.PetDto;
 import kb03.multicampus.petandmet.dto.ProductDto;
 import kb03.multicampus.petandmet.dto.ProductRecommendRequestDto;
+import kb03.multicampus.petandmet.dto.ReviewDto;
 import kb03.multicampus.petandmet.dto.UserDto;
+import kb03.multicampus.petandmet.mapper.ReviewMapper;
 import kb03.multicampus.petandmet.service.PetService;
 import kb03.multicampus.petandmet.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +32,7 @@ public class ProductController {
 
 	private final ProductService productService;
 	private final PetService petService;
+	private final ReviewMapper reviewMapper;
 	
 	@GetMapping // 상품 추천 페이지
 	public String products(HttpSession session, Model model) {
@@ -55,7 +58,9 @@ public class ProductController {
 	@GetMapping("/{no}") // 상품 상세 페이지
 	public String productDetailPage(@PathVariable int no, Model model, HttpSession session) {
 		ProductDto dto = productService.getProduct(no);
+		List<ReviewDto> reviews = reviewMapper.findByPno(no);
 		model.addAttribute("dto", dto);
+		model.addAttribute("reviews", reviews);
 		return "product_detail";
 	}
 }

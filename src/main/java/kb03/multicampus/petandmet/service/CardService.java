@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kb03.multicampus.petandmet.dto.CardDto;
+import kb03.multicampus.petandmet.dto.ProductDto;
 import kb03.multicampus.petandmet.mapper.CardMapper;
 
 @Service
@@ -37,5 +38,7 @@ public class CardService {
 		return cardmapper.orderbyaccrate();
 	}
     
-	
+	public CardDto getCard(int no) {
+		return cardmapper.findByNo(no);
+	}
 }

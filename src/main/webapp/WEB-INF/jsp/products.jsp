@@ -17,6 +17,9 @@
 	<!--  bootstrap 5.3.0 css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	
+	<!-- font Awesome 6 CDN -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+		
 	<!-- Google Fonts -->
 	<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic-coding.css" rel="stylesheet">
 	<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
@@ -42,10 +45,23 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		#petSelect {
+			width: 10rem;
+		    height: 3rem;
+		    margin: 10px;
+		    visibility: visible;
+		    color: rgb(51, 51, 51);
+		    flex: 1 1 auto;
+		    display: inline-grid;
+		    box-sizing: border-box;
+		    padding: 0.5rem 0.5rem 0.5rem 0px;    
+		}
+	</style>
 </head>
 <body>
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header><!-- End Header -->
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header><!-- End Header -->
 
 <main id="main">
 	
@@ -62,37 +78,54 @@
 		</div>
 	</section>
     <section class="inner-page">
-    	<div class="container">
-    		<div class="d-inline-flex flex-column">
-				<label for="petSelect">반려동물 선택</label>
-				<img id="petimg" src="" width="100" height="100">
-				<select id="petSelect">
-					<c:forEach items="${pets}" var="pet">
+    	<div class="container text-center">
+    		<div class="d-inline-flex flex-column align-items-center mb-3">
+	    		<h2>
+					<label for="petSelect">반려동물 선택</label>
+	    		</h2>
+	    		<div>
+					<img id="petimg" src="" width="100" height="100" class="object-fit-fill border rounded">
+					<select id="petSelect">
+						<c:forEach items="${pets}" var="pet">
 						<option value="${pet.no} ${pet.pet_image}">${pet.name}</option>
-					</c:forEach>
-				</select>
+						</c:forEach>
+					</select>
+	    		</div>
     		</div>
-			
-		    <nav class="col-10 nav mb-3">
-		        <a class="nav-item nav-link" href="#" id="feed">
-		        	사료
-		        </a>
-		        <a class="nav-item nav-link" href="#" id="snack">
-		            간식
-		        </a>
-		        <a class="nav-item nav-link" href="#" id="toy">
-		            장난감
-		        </a>
-		    </nav>
 		   	
 		   	<div class="mb-3">
 				<button class="get-started-btn scrollto" id="default">기본순</button>
 				<button class="get-started-btn scrollto" id="price-asc">가격 낮은순</button>
 				<button class="get-started-btn scrollto" id="price-desc">가격 높은순</button>
 		   	</div>
+		   	
+		   	<div class="card text-center border-0">
+		   		<div class="card-header bg-white">
+		   			<ul class="nav nav-tabs card-header-tabs">
+		   				<li class="nav-item">
+		   					<a class="nav-link text-dark active" aria-current="true" href="#" id="feed">
+		   						<i class="fa fa-bowl-food" style="color: gold;"></i> 사료
+		   					</a>
+		   				</li>
+			   			<li class="nav-item">
+			   				<a class="nav-link text-dark" href="#" id="snack">
+			   					<i class="fa fa-cookie-bite" style="color: maroon;"></i> 간식
+			   				</a>
+			   			</li>
+			   			<li class="nav-item">
+			   				<a class="nav-link text-dark" href="#" id="toy">
+			   					<i class="fa fa-hippo" style="color: dodgerblue;"></i> 장난감
+			   				</a>
+			   			</li>
+			   		</ul>
+			   </div>
+			   <div class="card-body">
+					<div class="row row-cols-1 row-cols-md-2 g-4" id="products"></div>
+			   </div>
+			  </div>
+		   	
 			
-			<div class="row row-cols-1 row-cols-md-2 g-4" id="products"></div>
-			
+			<!-- <div class="row row-cols-1 row-cols-md-2 g-4" id="products"></div> -->
 			<%-- <table id="msg">
 			</table> --%>
     	</div>
@@ -143,25 +176,50 @@
 		function print() {
 			products.html('')
 			$.each(list, function(index, item) {
-				let price = parseInt(`${'${item.price}'}`).toLocaleString('ko-KR');
+				let price = parseInt(item.price).toLocaleString('ko-KR');
+				console.log(price)
+				let badge = '';
+				if (item.patella) {
+					badge += '<span class="badge rounded-pill" style="color: black; background-color: aquamarine !important;">슬개골, 탈구질환</span>'
+				}
+				if (item.tooth) {
+					badge += '<span class="badge rounded-pill" style="color: black; background-color: bisque !important;">잇몸질환</span>'
+				}
+				if (item.skin) {
+					badge += '<span class="badge rounded-pill text-bg-info">피부질환</span>'
+				}
+				if (item.scaling) {
+					badge += '<span class="badge rounded-pill" style="color: black; background-color: deeppink !important;">스켈링</span>'
+				}
+				console.log(item.patella)
+				console.log(item.tooth)
+				console.log(item.skin)
+				console.log(item.scaling)
 				products.append(`<div class="col">
-					<a href="/products/${'${item.no}'}" class="text-decoration-none">
-						<div class="card h-100">
-							<img src="${'${item.image}'}" class="card-img-top " alt="${'${item.name}'}">
-							<div class="card-body">
-								<h5 class="card-title">${'${item.name}'}</h5>
-								<p class="card-text"> </p>
-							</div>
-							<div class="card-footer">
-								<small class="text-body-secondary">${'${price}'}원</small>
-							</div>
+					<div class="card">
+						<img src="${'${item.image}'}" class="card-img-top " alt="${'${item.name}'}">
+						<div class="card-body">
+							<h5 class="card-title">${'${item.name}'}</h5>
+							<p class="card-text">
+	                            ${'${badge}'}
+							</p>
+							<a href="/products/${'${item.no}'}" class="text-decoration-none stretched-link"></a>
 						</div>
-					</a>
+						<div class="card-footer">
+							<small class="text-body-secondary">
+								<i class="fa-solid fa-coins" style="color: gold;"></i>
+								${'${price}'}원
+							</small>
+						</div>
+					</div>
 				</div>`)
 			})
 		}
 
 		function handleSelectedOption() {
+			feed.classList.add('active', 'fw-bold')
+			snack.classList.remove('active', 'fw-bold')
+			toy.classList.remove('active', 'fw-bold')
 			petInfo = petSelect.value.split(' ')
 			no = petInfo[0]
 			image = petInfo[1]
@@ -192,16 +250,25 @@
 		
 		feed.addEventListener("click", function(e) {
 			ajax(no, '사료')
+			feed.classList.add('active', 'fw-bold')
+			snack.classList.remove('active', 'fw-bold')
+			toy.classList.remove('active', 'fw-bold')
 			e.preventDefault()
 		})
 		
 		snack.addEventListener("click", function(e) {
 			ajax(no, '간식')
+			feed.classList.remove('active', 'fw-bold')
+			snack.classList.add('active', 'fw-bold')
+			toy.classList.remove('active', 'fw-bold')
 			e.preventDefault()
 		})
 		
 		toy.addEventListener("click", function(e) {
 			ajax(no, '장난감')
+			feed.classList.remove('active', 'fw-bold')
+			snack.classList.remove('active', 'fw-bold')
+			toy.classList.add('active', 'fw-bold')
 			e.preventDefault()
 		})
 		

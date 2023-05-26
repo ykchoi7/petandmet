@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import kb03.multicampus.petandmet.dto.CardDto;
 
@@ -33,5 +34,8 @@ public interface CardMapper {
 			"order by acc_rate desc;")
 	List <CardDto> orderbyaccrate();
 	
-	
+	@Select("select *\r\n" + 
+			"from card\r\n" + 
+			"where NO= #{no};")
+	CardDto findByNo(@PathVariable("no") int no);
 }
