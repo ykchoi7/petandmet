@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,29 +61,26 @@ public class InsuranceController {
 //		return "insurances";
 //	}
 	
-//	@GetMapping("/insurances")
-//	public String insurance(Model model) {
-//		//db에서 보험 리스트 가져오기		
-//        List<Map<String, Object>> li = mapper.getBreedInsurance();
-//        model.addAttribute("li", li);
-//		
-//		return "insurances";
-//	}
-	
 
 	//petdto에서 pet breed를 가져오기 
 	@GetMapping
     public String insurance(Model model, HttpServletRequest req) {
         HttpSession session = req.getSession();
-        Object petinfo = session.getAttribute("petinfo"); //펫 품종 불러오기 
-
-		List<PetDto> pd = (List<PetDto>) petinfo;
-        
+		Object object = session.getAttribute("user");
+		
+		if (object == null) {
+			return "redirect:/login";
+		}
+		UserDto user = (UserDto) object;
+		List<PetDto> pd = petService.findByUid(user.getNo());
+		
 		for (int i = 0; i < pd.size(); i++) {
 			String breed = pd.get(i).getBreed().toString();
 	        List<Map<String, Object>> petins = mapper.getBreedInsurance(breed);
 	        model.addAttribute("petins", petins);
 		}
+		
+		model.addAttribute("petinfo", pd);
                
         return "insurances";     
     }
@@ -94,11 +92,19 @@ public class InsuranceController {
 		Map<String, Object> map = new HashMap<>();
 		log.info("RequestBody: {}", breed);
 		List<Map<String, Object>> li = service.getBreedInsurance(breed);
-		
+
 		map.put("li", li);
-		
 		log.info("HashMap: {}", map);
 		return map;
 	}
 	
+	
+	@GetMapping("/{no}")  //보험 상세 페이지
+	public String insuranceDetail(@PathVariable int no, Model model, HttpSession session) {
+		//db에서 보험 리스트 가져오기		
+		List<Map<String, Object>> detail = service.getInsuranceDetail(no);
+		model.addAttribute("detail", detail);
+		return "insurance_detail";
+	}
+		
 }
