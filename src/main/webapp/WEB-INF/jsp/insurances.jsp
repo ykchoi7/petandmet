@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,6 @@
     <title>Pet&Met</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="../../resources/assets/img/favicon.png" rel="icon">
 
@@ -43,6 +43,20 @@
             border: 1px solid #444444;
         }
         
+        #petSelect {
+        	width: 10rem;
+        	height: 3rem;
+        	margin: 10px;
+		    visibility: visible;
+		    color: rgb(51, 51, 51);
+		    flex: 1 1 auto;
+		    display: inline-grid;
+		    grid-area: 1 / 1 / 2 / 3;
+		    grid-template-columns: 0px min-content;
+		    box-sizing: border-box;
+		    padding: 0.5rem 0.5rem 0.5rem 0px;
+        }
+        
         .container {
         	margin-left: 12rem;
         	margin-right: 20rem;
@@ -51,75 +65,117 @@
         #msg{
 			width: 80%;
 			padding: 2.4rem 3rem 4rem;
-			margin-bottom: 3rem;
+			margin-bottom: 2.5rem;
 			border-radius: 1.5rem;
 			box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 1.5rem 0px;
-			background-color: rgb(255,255,255);
+			background-color: rgb(255, 255, 255);
 			display: flex; 
         	flex-wrap: wrap;
         	text-align: left;
         }
         
+        /* mark {
+        	background-color: ivory;
+        } */
+        
         .name {
+        	color: #ffbb38;
         	width: 100%;
 		    vertical-align: baseline;
 		    -webkit-box-align: center;
 		    align-items: center;
+		    margin: 10px;
+	        border: 2px solid #ffbb38;
+			padding: 20px 20px 10px 20px;
+        }
+        
+        .company {
+        	text-align: left;
+        	width: 100%;
+        	margin: 1rem 0rem 0px 0px;
+			padding: 0px 20px 0px 20px;
+        	background: rgb(255, 255, 255);
+        	text-decoration-line: underline;
+   			text-decoration-style: double;
+   			text-decoration-color: #ffbb38;
         }
         
         .breed, .benefits {
             text-align: left;
         	width: 100%;
-        	margin: 0.5rem 0rem 0px 0px;
+        	margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
         	background: rgb(255, 255, 255);
         }
         
-        .age, .ratio, .period {
-        	width: 15rem;
-    		margin: 1.5rem 1.5rem 0px 0px;
+        .age, .ratio {
+        	width: 13rem;
+    		margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
+        }
+        
+        .ratio {
+        	width: 13rem;
+    		margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
+        }
+        
+        .period {
+        	width: 20rem;
+    		margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
         }
         
         .annual {
-        	width: 15rem;
-    		margin: 1.5rem 1.5rem 0px 0px;
+        	width: 13rem;
+    		margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
         }
         
-        .daily, .tooth {
+        .daily {
         	width: 30rem;
-    		margin: 1.5rem 1.5rem 0px 0px;
+    		margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
         }
         
-        .patella, .skin, .scaling {
-        	width: 15rem;
-        	margin: 1.5rem 1.5rem 0px 0px;
+        .patella, .skin, .scaling, .tooth {
+        	width: 13rem;
+        	margin: 1rem 1rem 0px 0px;
+			padding: 0px 20px 0px 20px;
         }
-                
+     
         .fee {
         	width: 100%;
-        	margin: 1.5rem 1.5rem 0px 0px;
+        	margin: 1rem 2.5rem 0px 3rem;
         	font-weight: bold;
-        	font-size: 1.2rem;
+        	font-size: 1.4rem;
+        	text-align: right;
+        	text-weight: strong;
+        	color: orange;
+        	/* text-decoration-line: underline;
+   			text-decoration-color: #ffbb38; */
         }
         
         #btn {
-		    color: #060606;
+		    color: white;
 			border-radius: 2px;
-			padding: 7px 25px 8px 25px;
+			padding: 8px 25px 8px 25px;
 			white-space: nowrap;
 			transition: 0.3s;
 			font-size: 14px;
 			display: inline-block;
 			border: 2px solid #ffc451;
 			background: #ffbb38;
-			margin-top: 1rem;
-			margin-bottom: 1.5rem;
+			margin-top: 0rem;
+			margin-bottom: 1rem;
+			margin-left: 50rem;
+			float: right;
 		}
 		
 		#btn:hover {
 			background-color: rgba(255,247,250,0);
-  		    color: #343a40;
-		}
-		
+  		    color: #ffc451;
+		}		
         
     </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -133,7 +189,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
-        <div class="insdetail">
+        <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
                 <h2>보험 추천</h2>
@@ -148,17 +204,17 @@
 	
 	<section class="inner-page" style="align-items: center;">
 	
-	<div class="box" style="margin-left: 13rem; margin-bottom: 2rem; white-space:nowrap;">
-	<h3>마이펫 선택</h3>
-	<select id="petSelect">
-		<c:forEach items="${petinfo}" var="pet">
-		<option value="${pet.breed}">${pet.name}</option>
-		</c:forEach>
-	</select>
+	<div class="box" style="vertical-align:middle; line-height: 75px; margin-left: 13rem; margin-bottom: 1rem; white-space:nowrap;">
+		<h3 style="display:inline; margin-top: 2rem;">마이펫 선택 </h3>
+		<select id="petSelect">
+			<c:forEach items="${petinfo}" var="pet">
+			<option value="${pet.breed}">${pet.name}</option>
+			</c:forEach>
+		</select>
 	</div>
 	
 	<div class="container">
-	<div id = "msg"></div>
+	<div id = "msg">
 	
 	<script type="text/javascript">
 	
@@ -184,41 +240,41 @@
 					var msg = $('#msg')
 					msg.html('')
 					$.each(data.li, function(index, item){
-						msg.append('<div class="name"><h2>'+ item.name +'</div></h2><br>')
+						msg.append('<div class="name"><h2>'+ item.name +'</h2></div><br>')
 						msg.append('<div class="company"><p><b>' + item.company + '</b></p></div>')
 						msg.append('<div class="breed"><p>품종: ' + item.breed + '</p></div>')
-						msg.append('<div class="age"><p>대상 연령: <br>' + item.min_age + '개월 ~ ' + item.max_age + '개월 </p></div>')
-						msg.append('<div class="ratio"><p>보장 비율: <br>' + item.coverage_ratio + '</p></div>')
-						msg.append('<div class="period"><p>기간: <br>' + item.period + '개월 </p></div>')
+						msg.append('<div class="age"> 대상 연령: <br>' + '<p style="font-size: 18px; font-weight: bold;">' +item.min_age + '개월 ~ ' + item.max_age/12 +'세'+ '</p></div>')
+						msg.append('<div class="ratio"><div:after>보장 비율: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + item.coverage_ratio*100 + '% </p></div:after></div>')
+						msg.append('<div class="period">기간: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + item.period/12 + '년 </p></div>')
+						msg.append('<div class="annual">1년 최대 보장 금액: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + item.annual_limit +'원 </p></div>')
+						msg.append('<div class="daily">1일 최대 보장 금액: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + item.daily_limit + '원 </p></div>')
 						msg.append('<div class="benefits"><p>혜택: <br>' + item.benefits + '</p></div>')
-						msg.append('<div class="annual"><p>1년 최대 보장 금액: <br>' + item.annual_limit +'원 </p></div>')
-						msg.append('<div class="daily"><p>1일 최대 보장 금액: <br>' + item.daily_limit + '원 </p></div><br>')
 						if (item.patella == true) {
-							msg.append('<div class="patella"><p> 슬개골 보장 여부: ' + '보장' +'</p></div>')
+							msg.append('<div class="patella"><p> 슬개골 보장 여부: <br>' + '보장' +'</p></div>')
 						} else {
-							msg.append('<div class="patella"><p> 슬개골 보장 여부: ' + '미보장' +'</p></div>')
+							msg.append('<div class="patella"><p> 슬개골 보장 여부: <br>' + '미보장' +'</p></div>')
 						}
 						if (item.tooth == true) {
-							msg.append('<div class="tooth"><p> 구강질환 보장 여부: ' + '보장' +'</p></div>')
+							msg.append('<div class="tooth"><p> 구강질환 보장 여부: <br>' + '보장' +'</p></div>')
 						} else {
-							msg.append('<div class="tooth"><p> 구강질환 보장 여부: ' + '미보장' +'</p></div>')
+							msg.append('<div class="tooth"><p> 구강질환 보장 여부: <br>' + '미보장' +'</p></div>')
 						}
 						if (item.skin == true) {
-							msg.append('<div class="skin"><p> 피부질환 보장 여부: ' + '보장' +'</p></div>')
+							msg.append('<div class="skin"><p> 피부질환 보장 여부: <br>' + '보장' +'</p></div>')
 						} else {
-							msg.append('<div class="skin"><p> 피부질환 보장 여부: ' + '미보장' +'</p></div>')
+							msg.append('<div class="skin"><p> 피부질환 보장 여부: <br>' + '미보장' +'</p></div>')
 						}
 						if (item.scaling == true) {
-							msg.append('<div class="scaling"><p> 스케일링 보장 여부: ' + '보장' +'</p></div>')
+							msg.append('<div class="scaling"><p> 스케일링 보장 여부: <br>' + '보장' +'</p></div>')
 						} else {
-							msg.append('<div class="scaling"><p> 스케일링 보장 여부: ' + '미보장' +'</p></div>')
+							msg.append('<div class="scaling"><p> 스케일링 보장 여부: <br>' + '미보장' +'</p></div>')
 						}
 						if (item.method == 'monthly') {
-							msg.append('<div class="fee"><b><p> 납입 금액 : 월 ' + item.fee +'</p></b></div>')
+							msg.append('<div class="fee"><strong><p> 납입 금액 : 월 ' + item.fee +'</p></strong></div>')
 						} if (item.method == 'annually') {
-							msg.append('<div class="fee"><b><p> 납입 금액 : 연 ' + item.fee +'</p></b></div>')
+							msg.append('<div class="fee"><strong><p> 납입 금액 : 연 ' + item.fee +'</p></strong></div>')
 						}
-						msg.append('<button id="btn" onclick="location.href=' + '"insurances"' +'> 상세보기' + '</button><br>')
+						msg.append('<a href = "insurances/ ' + item.no + '">' + '<button id="btn">' + '상세보기' + '</button></a><br>')
 						msg.append('<hr style="width: 100%; background-color: solid 1px grey;">')
 						msg.append('<br><br>')
 					});
@@ -233,8 +289,10 @@
 	};
 	
 	</script>
-		</div>
+	</div>
+	</div>
     </section>
+</main>
     
 <footer id="footer" include-html="../../resources/assets/html/footer.html"></footer>
 
@@ -253,9 +311,8 @@
 <!-- Template Main JS File -->
 <script src="../../resources/assets/js/main.js"></script>
 
-</body>
-
 <script>
     includeHTML();
 </script>
+</body>
 </html>

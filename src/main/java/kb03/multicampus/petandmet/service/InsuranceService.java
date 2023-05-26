@@ -1,5 +1,6 @@
 package kb03.multicampus.petandmet.service;
 
+import kb03.multicampus.petandmet.dto.BreedInsuranceDto;
 import kb03.multicampus.petandmet.dto.InsuranceDto;
 import kb03.multicampus.petandmet.dto.PetDto;
 import kb03.multicampus.petandmet.dto.UserDto;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class InsuranceService {
+	
     @Autowired
     InsuranceMapper mapper;
 
@@ -24,6 +26,10 @@ public class InsuranceService {
     
     public List<Map<String, Object>> getBreedInsurance(String breed) {
     	return mapper.getBreedInsurance(breed);
+    }
+    
+    public List<Map<String, Object>> getInsuranceDetail(int no) {
+    	return mapper.findByNo(no);
     }
 
 }
