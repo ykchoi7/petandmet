@@ -9,7 +9,7 @@
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-    <script src="/fichat.js"></script>
+    <script src="/hechat.js"></script>
     <style>
         body {
             background-color: #f5f5f5;
