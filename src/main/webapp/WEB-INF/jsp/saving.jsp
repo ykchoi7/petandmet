@@ -45,37 +45,18 @@
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top header-inner-pages">
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header><!-- End Header -->
 
-	<div class="container d-flex align-items-center justify-content-lg-between">
-
-		<a href="/" class="logo ">
-			<img src="../../resources/assets/img/logo.png" alt="" style="height:50px; width: 180px;">
-		</a>
-
-		<!-- Uncomment below if you prefer to use an image logo -->
-		<!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-		<nav id="navbar" class="navbar order-last order-lg-0">
-			<ul>
-				<li><a class="nav-link scrollto active" href="#index">Home</a></li>
-			</ul>
-			<i class="bi bi-list mobile-nav-toggle"></i>
-		</nav><!-- .navbar -->
-
-
-	</div>
-
-</header><!-- End Header -->
+<!-- End Header -->
 
 <main id="main">
 	<!-- ======= Breadcrumbs ======= -->
 	<section class="breadcrumbs">
 		<div class="container">
-				<h2>Finance</h2>
-				<a href="/insurances" class="get-started-btn2 scrollto">보험 추천</a>
+				<h2>금융</h2>
+<!-- 			<a href="/insurances" class="get-started-btn2 scrollto">보험 추천</a>
 				<a href="/card" class="get-started-btn2 scrollto">카드 추천</a>
-				<a href="/saving" class="get-started-btn2 scrollto">적금 추천</a>
+				<a href="/saving" class="get-started-btn2 scrollto">적금 추천</a> -->
 			</div>
 
 		</div>
@@ -96,7 +77,7 @@
 						<c:forEach items="${savings}" var="saving">
 								<tr class="item">
 									<td class="image">
-									<img src="${saving.image}" style="width: 200px; height:100px;"/>
+									<img src="${saving.image}" style="width: 200px; height:70px;"/>
 									</td>
 									<td class="detail">
 										<div class="title">
