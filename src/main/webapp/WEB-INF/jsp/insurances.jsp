@@ -205,7 +205,7 @@
 	<section class="inner-page" style="align-items: center;">
 	
 	<div class="box" style="vertical-align:middle; line-height: 75px; margin-left: 13rem; margin-bottom: 1rem; white-space:nowrap;">
-		<h3 style="display:inline; margin-top: 2rem;">마이펫 선택 </h3>
+		<h3 style="display:inline; margin-top: 2rem;">마이 펫 선택 </h3>
 		<select id="petSelect">
 			<c:forEach items="${petinfo}" var="pet">
 			<option value="${pet.breed}">${pet.name}</option>
