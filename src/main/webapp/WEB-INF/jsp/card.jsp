@@ -55,50 +55,40 @@
 </head>
 <body>
 
-	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top header-inner-pages">
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header><!-- End Header -->
 
-		<div
-			class="container d-flex align-items-center justify-content-lg-between">
-
-			<a href="/" class="logo "> <img
-				src="../../resources/assets/img/logo.png" alt=""
-				style="height: 50px; width: 180px;">
-			</a>
-
-			<!-- Uncomment below if you prefer to use an image logo -->
-			<!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-			<nav id="navbar" class="navbar order-last order-lg-0">
-				<ul>
-					<li><a class="nav-link scrollto active" href="#index">Home</a></li>
-				</ul>
-				<i class="bi bi-list mobile-nav-toggle"></i>
-			</nav>
-			<!-- .navbar -->
-
-
-		</div>
-
-	</header>
 	<!-- End Header -->
 
 	<main id="main">
 		<!-- ======= Breadcrumbs ======= -->
 		<section class="breadcrumbs">
 			<div class="container">
-
-				<h2>Finance</h2>
-				<a href="/insurances" class="get-started-btn2 scrollto">보험 추천</a> 
+				<h2>금융</h2>
+<!-- 				<a href="/insurances" class="get-started-btn2 scrollto">보험 추천</a> 
 				<a href="/card" class="get-started-btn2 scrollto">카드 추천</a> 
-				<a href="/saving" class="get-started-btn2 scrollto">적금 추천</a>
-			</div>
-
-			</div>
+				<a href="/saving" class="get-started-btn2 scrollto">적금 추천</a> -->
+				</div>
 		</section>
+		
+		
 		<!-- End Breadcrumbs -->
 
 
+		<style>
+		#annualfee{
+			margin-right : 10px;
+		}
+				
+		#hospital{
+			margin-right : 10px;
+		}
+		
+		#shopping{
+			margin-right : 10px;
+		}
+		
+		</style>
+		
 		<section class="inner-page">
 			<div class="container">
 				<p>
@@ -107,6 +97,8 @@
 					<a id="shopping" class="get-started-btn scrollto">쇼핑몰할인율높은순</a> 
 					<a id="shopsave" class="get-started-btn scrollto">쇼핑몰적립율높은순</a>
 				</p>
+				
+				
 				<div class="list_card" style="text-align: center","margin:auto 0">
 					<table class="card_list">
 						<colgroup>
