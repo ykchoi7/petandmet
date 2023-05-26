@@ -45,10 +45,23 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		#petSelect {
+			width: 10rem;
+		    height: 3rem;
+		    margin: 10px;
+		    visibility: visible;
+		    color: rgb(51, 51, 51);
+		    flex: 1 1 auto;
+		    display: inline-grid;
+		    box-sizing: border-box;
+		    padding: 0.5rem 0.5rem 0.5rem 0px;    
+		}
+	</style>
 </head>
 <body>
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header><!-- End Header -->
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header><!-- End Header -->
 
 <main id="main">
 	
@@ -67,12 +80,12 @@
     <section class="inner-page">
     	<div class="container text-center">
     		<div class="d-inline-flex flex-column align-items-center mb-3">
-	    		<div>
-					<label for="pet-Select">반려동물 선택</label>
-	    		</div>
+	    		<h2>
+					<label for="petSelect">반려동물 선택</label>
+	    		</h2>
 	    		<div>
 					<img id="petimg" src="" width="100" height="100" class="object-fit-fill border rounded">
-					<select id="pet-Select">
+					<select id="petSelect">
 						<c:forEach items="${pets}" var="pet">
 						<option value="${pet.no} ${pet.pet_image}">${pet.name}</option>
 						</c:forEach>
@@ -146,7 +159,7 @@
 		let f = () => {} // 화살표 함수
 		includeHTML(f); // 콘솔 오류뜨는거 방지하려고 파라미터로 f 같이 보냈음
 		
-		let petSelect = document.querySelector('#pet-Select');
+		let petSelect = document.querySelector('#petSelect');
 		let petInfo = petSelect.value.split(' ')
 		let no = petInfo[0]
 		let image = petInfo[1]
@@ -163,16 +176,32 @@
 		function print() {
 			products.html('')
 			$.each(list, function(index, item) {
-				let price = parseInt(`${'${item.price}'}`).toLocaleString('ko-KR');
+				let price = parseInt(item.price).toLocaleString('ko-KR');
+				console.log(price)
+				let badge = '';
+				if (item.patella) {
+					badge += '<span class="badge rounded-pill" style="color: black; background-color: aquamarine !important;">슬개골, 탈구질환</span>'
+				}
+				if (item.tooth) {
+					badge += '<span class="badge rounded-pill" style="color: black; background-color: bisque !important;">잇몸질환</span>'
+				}
+				if (item.skin) {
+					badge += '<span class="badge rounded-pill text-bg-info">피부질환</span>'
+				}
+				if (item.scaling) {
+					badge += '<span class="badge rounded-pill" style="color: black; background-color: deeppink !important;">스켈링</span>'
+				}
+				console.log(item.patella)
+				console.log(item.tooth)
+				console.log(item.skin)
+				console.log(item.scaling)
 				products.append(`<div class="col">
 					<div class="card">
 						<img src="${'${item.image}'}" class="card-img-top " alt="${'${item.name}'}">
 						<div class="card-body">
 							<h5 class="card-title">${'${item.name}'}</h5>
 							<p class="card-text">
-	                            <span class="badge rounded-pill text-bg-info">
-	                            	Info
-	                            </span>
+	                            ${'${badge}'}
 							</p>
 							<a href="/products/${'${item.no}'}" class="text-decoration-none stretched-link"></a>
 						</div>
