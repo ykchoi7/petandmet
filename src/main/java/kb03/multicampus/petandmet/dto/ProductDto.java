@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDto {
-
+   
 	private int no; // 기본키 PK
 	private String name; // 상품명
 	private int price; // 가격
