@@ -69,11 +69,7 @@
 	<section class="breadcrumbs">
 		<div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h2>상품 추천 페이지</h2>
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>상품 추천 페이지</li>
-                </ol>
+                <h2>상품 추천</h2>
             </div>
 		</div>
 	</section>
@@ -81,7 +77,7 @@
     	<div class="container text-center">
     		<div class="d-inline-flex flex-column align-items-center mb-3">
 	    		<h2>
-					<label for="petSelect">반려동물 선택</label>
+					<label for="petSelect">마이펫 선택</label>
 	    		</h2>
 	    		<div>
 					<img id="petimg" src="" width="100" height="100" class="object-fit-fill border rounded">
