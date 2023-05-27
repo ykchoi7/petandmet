@@ -55,11 +55,18 @@
 
 		<!-- Uncomment below if you prefer to use an image logo -->
 		<!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+		<c:if test="${user eq null}">
 		<div>
-			<a href="login" class="get-started-btn scrollto">로그인</a>
-			<a href="login.html" class="get-started-btn scrollto">회원가입</a>
+			<a href="/login" class="get-started-btn scrollto">로그인</a>
+			<a href="/signup" class="get-started-btn scrollto">회원가입</a>
 		</div>
+		</c:if>
+		<c:if test="${user ne null}">
+		<div>
+			<a href="/logout" class="get-started-btn scrollto">로그아웃</a>
+		</div>
+		</c:if>
+		
 
 
 	</div>
