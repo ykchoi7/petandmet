@@ -129,7 +129,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(255, 213, 213, 0.8);
+  background: rgba(255, 236, 196, 0.8);
 }
 
 #header .logo {
@@ -1607,7 +1607,7 @@ th {
 .thead {
   font-weight: bold;
   color: #000000;
-  background: #ffcd6b;
+  background: rgb(255 243 196);
 }
 
 td, th {

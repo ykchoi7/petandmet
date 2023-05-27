@@ -55,11 +55,18 @@
 
 		<!-- Uncomment below if you prefer to use an image logo -->
 		<!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+		<c:if test="${user eq null}">
 		<div>
-			<a href="login" class="get-started-btn scrollto">로그인</a>
-			<a href="login.html" class="get-started-btn scrollto">회원가입</a>
+			<a href="/login" class="get-started-btn scrollto">로그인</a>
+			<a href="/signup" class="get-started-btn scrollto">회원가입</a>
 		</div>
+		</c:if>
+		<c:if test="${user ne null}">
+		<div>
+			<a href="/logout" class="get-started-btn scrollto">로그아웃</a>
+		</div>
+		</c:if>
+		
 
 
 	</div>
@@ -79,19 +86,19 @@
 		<div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
 			<div class="col-xl-2 col-md-4">
 				<div class="icon-box">
-					<i class="ri-store-line"></i>
+					<i class="bi bi-coin"></i>
 					<h3><a href="/insurances">Finance</a></h3>
 				</div>
 			</div>
 			<div class="col-xl-2 col-md-4">
 				<div class="icon-box">
-					<i class="ri-paint-brush-line"></i>
-					<h3><a href="">Health</a></h3>
+					<i class="ri-shopping-cart-fill"></i>
+					<h3><a href="">Products</a></h3>
 				</div>
 			</div>
 			<div class="col-xl-2 col-md-4">
 				<div class="icon-box">
-					<i class="ri-database-2-line"></i>
+					<i class="bi bi-chat-heart"></i>
 					<h3><a href="chat_index">Chat</a></h3>
 				</div>
 			</div>
@@ -139,16 +146,16 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
 					<div class="icon-box">
-						<div class="icon"><i class="bi bi-coin"></i></div>
-						<h4><a href="">금융</a></h4>
+						<div class="icon"><i class="ri-coins-fill"></i></div>
+						<h4><a href="">금융 추천</a></h4>
 						<p>반려동물 맞춤 금융 상품 추천 - 시간 절약 및 최적화된 자금 활용</p>
 					</div>
 				</div>
 
 				<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
 					<div class="icon-box">
-						<div class="icon"><i class="bi bi-hearts"></i></div>
-						<h4><a href="">헬스</a></h4>
+						<div class="icon"><i class="ri-shopping-cart-fill"></i></div>
+						<h4><a href="">상품 추천</a></h4>
 						<p> 반려동물에게 필요한 간식 및 용품 추천 - 반려동물의 건강 증진</p>
 					</div>
 				</div>

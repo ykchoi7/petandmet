@@ -51,7 +51,7 @@
 </head>
 
 <body>
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header>
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header>
 <main id="main">
 
     <div>

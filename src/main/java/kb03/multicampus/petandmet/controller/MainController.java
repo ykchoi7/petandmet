@@ -46,6 +46,12 @@ public class MainController {
 	public String chat_index() {
 		return "chat_index";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
 
 
 //	@GetMapping("/insurances")

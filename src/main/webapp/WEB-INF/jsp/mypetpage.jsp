@@ -42,7 +42,21 @@
     ======================================================== -->
     <style>
         th,td{
-            border: 1px solid #444444;
+            border: 1px solid #4444444f;
+        }
+
+        #petSelect {
+            width: 10rem;
+            height: 3rem;
+            margin: 10px;
+            visibility: visible;
+            color: rgb(51, 51, 51);
+            flex: 1 1 auto;
+            display: inline-grid;
+            grid-area: 1 / 1 / 2 / 3;
+            grid-template-columns: 0px min-content;
+            box-sizing: border-box;
+            padding: 0.5rem 0.5rem 0.5rem 0px;
         }
 
     </style>
@@ -69,13 +83,16 @@
     </section><!-- End Breadcrumbs -->
     <section class="inner-page" >
         <div class="container pet" style="text-align:center; ">
-            <label for="petSelect">반려동물 선택</label>
+            <div class="box" style="vertical-align:middle; line-height: 75px; white-space:nowrap;">
+
+            <h3 for="petSelect" style="display:inline; margin-top: 2rem;">마이 펫 선택 </h3>
+
             <select id="petSelect">
                 <c:forEach items="${pets}" var="pet">
                     <option value="${pet.no}">${pet.name}</option>
                 </c:forEach>
-            </select>
-            <br><br>
+            </select></div>
+
             <div style = "margin: 0 auto; ">
                 <table style = "margin: 0 auto;" id="msg1"></table><br>
                 <table style = "margin: 0 auto;" id="msg"></table>

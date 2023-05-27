@@ -19,6 +19,9 @@
 <!--  bootstrap 5.3.0 css -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+<!-- font Awesome 6 CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 <!-- Google Fonts -->
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic-coding.css" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
@@ -47,7 +50,7 @@
 </head>
 <body>
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header><!-- End Header -->
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header><!-- End Header -->
 
 <main id="main">
 
@@ -56,11 +59,8 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>상품 상세 페이지</h2>
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>상품 상세 페이지</li>
-                </ol>
+                <h2>상품 상세</h2>
+                
             </div>
 
         </div>
@@ -85,7 +85,8 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>${dto.name}</h3>
+              <h2>${dto.name}</h2>
+              <hr>
               <ul>
                 <li><strong>상품 종류</strong> : ${dto.category}</li>
                 <c:if test="${dto.category eq '사료'}">
@@ -99,23 +100,47 @@
                 </li>				
                 </c:if>
                 <li><strong>가격 : <fmt:formatNumber value="${dto.price}" pattern="#,###"></fmt:formatNumber>원</strong></li>
-                <li><strong>슬개골, 탈구질환</strong> : <c:choose>
-                <c:when test="${dto.patella}">보장</c:when>
-                <c:otherwise>미보장</c:otherwise>
-                </c:choose></li>
-                <li><strong>구강질환</strong> : ${dto.tooth}</li>
-                <li><strong>피부질환</strong> : ${dto.skin}</li>
-                <li><strong>스켈링</strong> : ${dto.scaling}</li>
-                <li><strong>상품 URL</strong>: <a href="#">www.example.com</a></li>
+                
+                <li>
+                <c:if test="${dto.patella}">
+                <span class="badge rounded-pill" style="color: black; background-color: aquamarine !important;">슬개골, 탈구질환</span>
+                </c:if>
+                <c:if test="${dto.tooth}">
+                <span class="badge rounded-pill" style="color: black; background-color: bisque !important;">잇몸질환</span>
+                </c:if>
+                <c:if test="${dto.skin}">
+                <span class="badge rounded-pill text-bg-info">피부질환</span>
+                </c:if>
+                <c:if test="${dto.scaling}">
+                <span class="badge rounded-pill" style="color: black; background-color: deeppink !important;">스켈링</span>
+                </c:if>
+                </li>
+                                
+                <li class="text-center"><br><strong><a href="#">자세히 보기</a></strong></li>
+                
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>상품 후기 (${fn:length(reviews)})</h2>
+            
+            <div class="portfolio-description"></div>
+            
+            <div class="portfolio-info">
+              <h3>상품 후기 (${fn:length(reviews)})</h3>
+              <ul>
               <c:forEach items="${reviews}" var="review">
+              	<li>
               	<p><strong>${review.uname}</strong></p>
-              	<p>평점 <strong>${review.rate}</strong></p>
+              	<p>평점 
+              	<c:forEach var="i" begin="1" end="${review.rate}">
+	              	<i class="fa-solid fa-star" style="color: gold;"></i>
+              	</c:forEach>
+              	<c:forEach var="i" begin="1" end="${5 - review.rate}">
+	              	<i class="fa-solid fa-star" style="color: gray;"></i>
+              	</c:forEach>
+              	</p>
               	<p>${review.content}</p>
+              	</li>
               </c:forEach>
+              </ul>
             </div>
           </div>
 
@@ -146,7 +171,7 @@
 <!-- Template Main JS File -->
 <script src="../../resources/assets/js/main.js"></script>
 
-<script ty>
+<script>
 	let f = () => {} // 화살표 함수
 	includeHTML(f); // 콘솔 오류뜨는거 방지하려고 파라미터로 f 같이 보냈음
 </script>
