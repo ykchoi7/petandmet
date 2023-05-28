@@ -34,7 +34,7 @@ public class MainController {
 		UserDto user = userService.findById(id);//id로 유저 찾아서 dto 객체 user에 저장
 		HttpSession httpSession = req.getSession();
 		httpSession.setAttribute("user",user);//세션에 user라는 이름으로 저장
-		return "redirect:mypage";
+		return "redirect:/";
 	}
 
 	@GetMapping("/signup")
