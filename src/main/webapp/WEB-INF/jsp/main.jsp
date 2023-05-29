@@ -93,7 +93,7 @@
 			<div class="col-xl-2 col-md-4">
 				<div class="icon-box">
 					<i class="ri-shopping-cart-fill"></i>
-					<h3><a href="">Products</a></h3>
+					<h3><a href="/products">Products</a></h3>
 				</div>
 			</div>
 			<div class="col-xl-2 col-md-4">
