@@ -58,7 +58,6 @@
         }
         
         .container {
-        	margin-top: 1rem;
         	margin-left: 12rem;
         	margin-right: 20rem;
         }
