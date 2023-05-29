@@ -56,37 +56,6 @@
 	text-align : center;
 	}
 	
-	div {
-	margin:0;
-	padding:0;
-	border:0;
-	verticla-align: top;
-	display:block;
-	}
-	
-	strong {
-	margin:0;
-	padding:0;
-	border:0;
-	verticla-align: top;
-	display:block;
-	}
-	
-	i {
-	margin:0;
-	padding:0;
-	border:0;
-	verticla-align: top;
-	display:block;
-	}
-	
-	dl {
-	margin:0;
-	padding:0;
-	border:0;
-	verticla-align: top;
-	display:block;
-	}
 	
 	span {
 	margin:0;
@@ -96,21 +65,6 @@
 	display:block;
 	}
 	
-	dl {
-	margin:0;
-	padding:0;
-	border:0;
-	verticla-align: top;
-	display:block;
-	}
-	
-	dd {
-	margin:0;
-	padding:0;
-	border:0;
-	verticla-align: top;
-	display:block;
-	}
 	
 	dl {
     margin-block-start: 1em;
