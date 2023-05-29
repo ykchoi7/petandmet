@@ -120,10 +120,6 @@
 			   </div>
 			  </div>
 		   	
-			
-			<!-- <div class="row row-cols-1 row-cols-md-2 g-4" id="products"></div> -->
-			<%-- <table id="msg">
-			</table> --%>
     	</div>
     </section>
     

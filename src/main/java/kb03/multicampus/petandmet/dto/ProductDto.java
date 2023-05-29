@@ -26,5 +26,6 @@ public class ProductDto {
 	private boolean tooth; // 구강질환
 	private boolean skin; // 피부질환
 	private boolean scaling; // 스켈링
-		
+	private String info_url; // 상세정보
+	
 }
