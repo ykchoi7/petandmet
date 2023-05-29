@@ -22,7 +22,7 @@ public interface InsuranceMapper {
 			+ "from petandmet.insurance as a join petandmet.breed_insurance as b\n"
 			+ "	on a.no = b.ino\n"
 			+ " where breed = #{breed}"
-			+ " order by breed, fee")
+			+ " order by patella desc, tooth desc, fee")
 	List<Map<String, Object>> getBreedInsurance(@Param("breed") String breed);
 
 	@Select("select a.*, b.*\n"
