@@ -7,8 +7,11 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    
     <title>Pet&Met</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -133,48 +136,57 @@
         }
         
         .daily {
-        	width: 30rem;
+        	width: 13rem;
     		margin: 1rem 1rem 0px 0px;
 			padding: 0px 20px 0px 20px;
         }
         
         .patella, .skin, .scaling, .tooth {
         	width: 13rem;
-        	margin: 1.5rem 1rem 0px 0px;
+        	margin: 0.5rem 1rem 0px 0px;
 			padding: 0px 20px 0px 20px;
         }
      
         .fee {
-        	width: 100%;
-        	margin: 2rem 2.5rem 0px 3rem;
+        	width: 14rem;
+        	height: 3rem;
+        	margin: 1rem 1rem 1.5rem 15.5rem;
+        	visibility: visible;
         	font-weight: bold;
-        	font-size: 1.4rem;
-        	text-align: right;
+        	font-size: 1.2rem;
+        	text-align: center;
+        	vertical-align: middle;
         	text-weight: strong;
         	color: orange;
-        	/* text-decoration-line: underline;
-   			text-decoration-color: #ffbb38; */
+        	box-sizing: border-box;
+		    padding: 0.5rem 0rem 0rem 0px;
+        	border: 2px solid #ffc451;
+        	border-radius: 1.5rem;
         }
         
         #btn {
 		    color: white;
 			border-radius: 2px;
-			padding: 8px 25px 8px 25px;
+			/* padding: 8px 50px 8px 50px; */
+			padding: 8px 440px 8px 440px;
 			white-space: nowrap;
 			transition: 0.3s;
-			font-size: 14px;
+			font-size: 15px;
 			display: inline-block;
-			border: 2px solid #ffc451;
+			border: 2px solid #ffbb38;
+			border-radius: 1.5rem;
 			background: #ffbb38;
-			margin-top: 0rem;
-			margin-bottom: 1rem;
-			margin-left: 50rem;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+			/* margin-left: 46.8rem; */
 			float: right;
 		}
 		
 		#btn:hover {
-			background-color: rgba(255,247,250,0);
-  		    color: #ffc451;
+			/* background-color: rgba(255,247,250,0); */
+			background-color: #333;
+			border: 2px solid #333;
+  		    color: white;
 		}		
         
     </style>
@@ -211,8 +223,10 @@
 		</select>
 	</div>
 	
-	<div class="container">
+	<div class="container" class="p-3 m-0 border-0 bd-example bd-example-cssgrid">
 	<div id = "msg">
+	<div class="grid text-center">
+	
 	
 	<script type="text/javascript">
 	
@@ -255,8 +269,13 @@
 								+ '<p style="font-size: 18px; font-weight: 900;">' + annual +'원 </p></div>')
 						msg.append('<div class="daily"><div style="color: #828282; font-size: 14px;">1일 최대 보장 금액: </div>' 
 								+ '<p style="font-size: 18px; font-weight: 900;">' + daily + '원 </p></div>')
-						msg.append('<hr style="width: 100%; border-top: 2px dashed #ffbb38;">')
-						msg.append('<div class="benefits"><div style="font-size: 14px;">혜택: </div>' + item.benefits + '</div><br>')
+						if (item.method == 'monthly') {
+							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 월 ' + fee +'</p></strong></div>')
+						} if (item.method == 'annually') {
+							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 연 ' + fee +'</p></strong></div>')
+						}
+						msg.append('<hr style="width: 100%; border-top: 2px dashed #ffbb38; margin-top: 0rem;">')
+						/* msg.append('<div class="benefits"><div style="font-size: 14px;">혜택: </div>' + item.benefits + '</div><br>') */
 						if (item.patella == true) {
 							msg.append('<div class="patella"><div style="font-size: 14px;"> 슬개골 보장 여부: </div>' + '<strong>보장</strong>' +'</div>')
 						} else {
@@ -277,11 +296,11 @@
 						} else {
 							msg.append('<div class="scaling"><div style="font-size: 14px;"> 스케일링 보장 여부: </div>' + '<strong>미보장</strong>' +'</div>')
 						}
-						if (item.method == 'monthly') {
+						/* if (item.method == 'monthly') {
 							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 월 ' + fee +'</p></strong></div>')
 						} if (item.method == 'annually') {
 							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 연 ' + fee +'</p></strong></div>')
-						}
+						} */
 						msg.append('<a href = "insurances/ ' + item.no + '">' + '<button id="btn">' + '상세보기' + '</button></a><br>')
 						msg.append('<hr style="width: 100%; background-color: solid 1px grey;">')
 						msg.append('<br><br>')
@@ -297,6 +316,7 @@
 	};
 	
 	</script>
+	</div>
 	</div>
 	</div>
     </section>
