@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CardDto{
 	private int no,annual_fee,hospital_discount,shopping_discount,acc_rate;
-	private String image,name,company,benefits;
+	private String image,name,company,benefits,info_url;
 	private boolean insurance_reg, fund;
 }
