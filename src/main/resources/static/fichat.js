@@ -26,7 +26,7 @@ function sendMessage() {
     showMessage("<li class=\"chat1-li2 list-item\"><span class=\"chat1-text02\">"+ message+"</span></li>");
     console.log(message);
     stompClient.send("/app/sendMessage", {}, JSON.stringify(message));
-    $("#msg").html("")
+    $("#msg").val('');
 }
 
 function showMessage(message) {

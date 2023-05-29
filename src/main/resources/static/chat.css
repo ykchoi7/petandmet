@@ -1,58 +1,18 @@
-.navigation-links-nav {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+#conversation {
+    height : 80%;
+    width: 100%;
+    background-color:#f1f1f1;
+    overflow-y: scroll;
 }
-.navigation-links-text1 {
-    margin-left: var(--dl-space-space-twounits);
+#msg{
+    align-self: center;
 }
-.navigation-links-text2 {
-    margin-left: var(--dl-space-space-twounits);
-}
-.navigation-links-text3 {
-    margin-left: var(--dl-space-space-twounits);
-}
-.navigation-links-text4 {
-    margin-left: var(--dl-space-space-twounits);
+.counselor-emoji {
+    width: 18px;
+    margin-left: 32px;
+    margin-right: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/*@media(max-width: 767px) {*/
-    .navigation-links-nav {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-    .navigation-links-text {
-        margin-bottom: var(--dl-space-space-unit);
-    }
-    .navigation-links-text1 {
-        margin-left: 0;
-        margin-bottom: var(--dl-space-space-unit);
-    }
-    .navigation-links-text2 {
-        margin-left: 0;
-        margin-bottom: var(--dl-space-space-unit);
-    }
-    .navigation-links-text3 {
-        margin-left: 0;
-        margin-bottom: var(--dl-space-space-unit);
-    }
-    .navigation-links-text4 {
-        margin-left: 0;
-        margin-bottom: var(--dl-space-space-unit);
-    }
-}
 
 .chat1-container {
     width: 100%;
@@ -171,7 +131,7 @@
 .chat1-image2 {
     width: 35px;
     height: 35px;
-    margin-left: 10px;
+    margin-left: 15px;
     border-radius: 50%;
 }
 .chat1-text {
@@ -179,6 +139,7 @@
     left: 320px;
     margin: auto;
     position: absolute;
+    margin-left:15px;
 }
 .chat1-container05 {
     flex: 0 0 auto;
@@ -189,7 +150,7 @@
 }
 
 .chat1-ul {
-    width: 95%;
+    width: 100%;
     height: 100%;
     position: relative;
     border-color: #d9d9d9;
@@ -198,7 +159,11 @@
     border-left-width: 0px;
     border-right-width: 0px;
     list-style-type: none;
-    margin-top:3%;
+    display:grid;
+    padding:10px;
+    align-items:start;
+    align-content: baseline;
+
 }
 
 .list-item{
@@ -211,6 +176,7 @@
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom:15px;
+    max-width: 85%;
 }
 .chat1-li1 {
     background-color: #ffffff;
@@ -219,39 +185,46 @@
 .chat1-li2 {
     background-color: #ffd584;
     float:right;
+    justify-self: end;
 }
 
 .chat1-container06 {
     flex: 0 0 auto;
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 .chat1-image3 {
-    top: 668px;
-    left: 268px;
-    width: 30px;
-    position: absolute;
+    width:23px;
     object-fit: cover;
 }
 .chat1-textinput {
-    color: #d9d9d9;
-    width: 85%;
+    text-align: start;
+    color: #000000;
+    width: 423px;
     height: 70%;
     border-width: 0px;
+    margin-right:10px;
+    flex: auto;
+    margin-top:0px;
 }
 .chat1-button {
-    top: 662px;
-    left: 621px;
-    width: 44px;
-    height: 44px;
-    padding: 5px;
-    position: absolute;
-    padding-top: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    border: 2px solid #ffc451;
+    background-color: #ffffff;
+    width: 38px;
+    height: 35px;
+    margin-right: 4px;
+}
+.send-btn{
+    width:20px;
 }
 .chat1-container07 {
     flex: 0 0 auto;
-    width: 200px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -261,62 +234,35 @@
     border-bottom-right-radius: 20px;
 }
 .chat1-image4 {
-    top: 35px;
-    left: 0px;
-    right: 0px;
     width: 150px;
     height: 150px;
-    margin: auto;
-    position: absolute;
-    align-self: flex-start;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+
 }
 .chat1-text03 {
-    top: 208px;
-    left: 0px;
-    right: 0px;
-    margin: auto;
     position: absolute;
     font-size: 20px;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 5px;
 }
 .chat1-text04 {
-    top: 239px;
-    left: 77px;
-    margin: auto;
-    position: absolute;
     text-align: center;
-}
-.chat1-container08 {
-    flex: 0 0 auto;
-    width: auto;
-    height: auto;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-}
-.chat1-container09 {
-    flex: 0 0 auto;
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.chat1-container10 {
-    flex: 0 0 auto;
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    align-self: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #7f7f7f;
 }
 .chat1-text05 {
     align-self: center;
     text-align: center;
+    font-size: 11px;
+    padding:10px;
+}
+.chat1-text06-info{
+    font-size: 13px;
 }
 /*@media(max-width: 1200px) {*/
     .chat1-container02 {
@@ -326,6 +272,7 @@
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 0;
         background-color:#e9e9e9;
+        margin-top:73px;
     }
     .chat1-container03 {
         height: 585px;
@@ -357,24 +304,25 @@
         height: 75%;
         align-self: center;
         background-color: #e9e9e9;
+        border-top-width: 0.5px;
+        border-bottom-width: 0.5px;
+        border-color: #d9d9d9;
+
     }
     .chat1-container06 {
         position: relative;
-        border-radius: 20px;
+        border-bottom-left-radius: 20px;
         background-color: #ffffff;
         height:10%;
-        width:100%
+        width:100%;
     }
     .chat1-image3 {
         position: static;
-        margin-top: 8px;
-        margin-left: 8px;
-        margin-right: 8px;
-        margin-bottom: 8px;
+        margin-left: 15px;
+        margin-right: 10px;
     }
     .chat1-textinput {
         position: static;
-        align-self: flex-end;
     }
     .chat1-button {
         position: static;
@@ -383,11 +331,14 @@
         height: 585px;
         width: 20%;
         background-color: #ffffff;
+        box-shadow: 5px 5px 10px 0px #d4d4d4;
+
     }
     .chat1-image4 {
         margin: 20px;
         position: static;
         align-self: center;
+        margin-top: 30px;
     }
     .chat1-text03 {
         position: static;

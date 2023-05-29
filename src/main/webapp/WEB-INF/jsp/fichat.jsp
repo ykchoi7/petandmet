@@ -28,43 +28,25 @@
 
     <!-- Template Main CSS File -->
     <link href="../../resources/assets/css/style.css" rel="stylesheet">
-<%--    <link href="/main.css" rel="stylesheet">--%>
+    <!-- html 분리 위함 -->
+    <script src="../../resources/assets/js/includeHTML.js"></script>
 
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<%--    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">--%>
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="/fichat.js"></script>
-    <!-- html 분리 위함 -->
-    <script src="../../resources/assets/js/includeHTML.js"></script>
 
     <style>
         body {
             background-color: #f5f5f5;
         }
-
-        #main-content {
-            max-width: 60%;
-            min-width: 50px;
-            height: 60%;
-            padding: 2em 3em;
-            margin: 0 auto 20px;
-            background-color: #fff;
-            border: 1px solid #e5e5e5;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-        }
-        #conversation {
-            height : 80%;
-            width: 100%;
-            background-color:#f1f1f1;
-        }
     </style>
 </head>
 <body>
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header><!-- End Header -->
 
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header>
+<main id="main">
 <div>
     <link href="/chat.css" rel="stylesheet">
 <%--    <header class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header>--%>
@@ -73,10 +55,10 @@
                 <div class="chat1-container04">
                     <img
                             alt="image"
-                            src="../../resources/assets/img/team/financedog.PNG"
+                            src="../../resources/assets/img/team/team-3.jpg"
                             class="chat1-image2"
                     />
-                    <span class="chat1-text">금융상담원 김국민</span>
+                    <span class="chat1-text">펫 금융 상담원 김국민</span>
                 </div>
                     <div id="conversation">
                     <ul class="chat1-ul list" id="communicate">
@@ -89,46 +71,41 @@
                     </ul>
                 </div>
                 <div class="chat1-container06">
+                    <a href="">
                     <img
                             alt="image"
-                            src="https://play.teleporthq.io/static/svg/default-img.svg"
+                            src="https://em-content.zobj.net/thumbs/160/facebook/158/paperclip_1f4ce.png"
                             class="chat1-image3"
                     />
+                    </a>
+                    <form>
                     <input
                             type="text"
                             id="msg"
                             placeholder="내용을 입력하세요..."
                             class="chat1-textinput input"
                     />
-                    <button id="send" class="chat1-button" disabled type="submit">보내기</button>
-
+                    <button id="send" class="chat1-button" disabled type="submit"><img class="send-btn" src="../../resources/assets/img/send-btn.png"></button>
+                    </form>
                 </div>
             </div>
             <div class="chat1-container07">
                 <img
                         alt="image"
-                        src="../../resources/assets/img/team/financedog.PNG"
+                        src="../../resources/assets/img/team/team-3.jpg"
                         class="chat1-image4"
                 />
                 <span class="chat1-text03">김국민</span>
-                <span class="chat1-text04">**지점 금융상담원</span>
-                <div class="chat1-container08">
-                    <div class="chat1-container09">
-                        <div class="chat1-container10">
-              <span class="chat1-text05">
-                <span>안녕하세요.</span>
-                <br />
-                <span>어쩌구저쩌구</span>
-                <br />
-              </span>
-                        </div>
-                    </div>
-                </div>
+                <span class="chat1-text04">선릉지점 펫 금융 상담원</span>
+                <span class="chat1-text05">안녕하세요. <br>오늘도 최선을 다하겠습니다^^</span> <br><br>
+                <span class="chat1-text06-info"> <img class="counselor-emoji" src="https://em-content.zobj.net/thumbs/160/facebook/158/e-mail-symbol_1f4e7.png"> kkm@petandmet.com</span>
+                <span class="chat1-text06-info"> <img class="counselor-emoji" src="https://em-content.zobj.net/thumbs/160/toss-face/342/telephone-receiver_1f4de.png"> 02-123-1234</span>
+                <span class="chat1-text06-info"> <img class="counselor-emoji" src="https://em-content.zobj.net/thumbs/160/google/350/round-pushpin_1f4cd.png"> 서울특별시 강남구 대치동 123-123</span>
             </div>
         </div>
 <%--    </header>--%>
 </div>
-
+</main>
 <footer id="footer" include-html="../../resources/assets/html/footer.html"></footer>
 
 

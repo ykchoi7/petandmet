@@ -39,19 +39,11 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
-    <style>
-        th,td{
-            border: 1px solid #444444;
-        }
-        span{
-            text-align: center;
-        }
 
-    </style>
 </head>
 
 <body>
-<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar.html"></header>
+<header id="header" class="fixed-top header-inner-pages" include-html="../../resources/assets/html/navbar2.html"></header>
 <main id="main">
 
     <div>
@@ -63,15 +55,15 @@
                         class="home-image2"
                 />
                 <span class="home-text">
-          <span class="home-text01">금융에 대해 궁금하신가요?</span>
-          <br class="home-text02" />
-          <span class="home-text03">지금 바로 버튼을 클릭하세요!</span>
-          <br class="home-text04" />
-          <br class="home-text05" />
-          <span class="home-text06">상담 가능 시간 : 09:00 ~ 18:00</span>
+          <span class="home-text01">펫 금융에 대해 궁금하신가요?</span>
+          <br />
+          <span class="home-text02">지금 바로 버튼을 클릭하세요!</span>
+          <br />
+          <br  />
+          <span class="home-text03">상담 가능 시간 : 09:00 ~ 18:00</span>
           <br />
         </span>
-                <a href="fichat"><button class="get-started-btn scrollto">금융 상담</button></a>
+                <a href="fichat"><button class="get-started-btn scrollto">펫 금융 상담</button></a>
             </div>
             <div class="home-container4">
                 <img
@@ -79,16 +71,16 @@
                         src="https://em-content.zobj.net/source/skype/289/woman-health-worker_1f469-200d-2695-fe0f.png"
                         class="home-image3"
                 />
-                <span class="home-text08">
-          <span class="home-text09">헬스에 대해 궁금하신가요?</span>
-          <br class="home-text10" />
-          <span class="home-text11">지금 바로 버튼을 클릭하세요!</span>
-          <br class="home-text12" />
-          <br class="home-text13" />
-          <span class="home-text14">상담 가능 시간 : 13:00 ~ 22:00</span>
+                <span class="home-text">
+          <span class="home-text01">반려동물의 건강에 대해 궁금하신가요?</span>
+          <br  />
+          <span class="home-text02">지금 바로 버튼을 클릭하세요!</span>
+          <br />
+          <br />
+          <span class="home-text03">상담 가능 시간 : 13:00 ~ 22:00</span>
           <br />
         </span>
-                <a href="hechat"><button class="get-started-btn scrollto">헬스 상담</button></a>
+                <a href="hechat"><button class="get-started-btn scrollto">펫 헬스 상담</button></a>
             </div>
         </div>
     </div>
