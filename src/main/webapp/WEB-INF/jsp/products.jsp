@@ -204,7 +204,7 @@
 						<div class="card-footer">
 							<small class="text-body-secondary">
 								<i class="fa-solid fa-coins" style="color: gold;"></i>
-								${'${price}'}원
+								<strong>${'${price}'}원</strong>
 							</small>
 						</div>
 					</div>

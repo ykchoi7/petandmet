@@ -64,6 +64,7 @@
 		<c:if test="${user ne null}">
 		<div>
 			<a href="/logout" class="get-started-btn scrollto">로그아웃</a>
+			<a href="/mypage" class="get-started-btn scrollto">마이페이지</a>
 		</div>
 		</c:if>
 		
@@ -84,19 +85,19 @@
 		</div>
 
 		<div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-			<div class="col-xl-2 col-md-4">
+			<div style=" cursor: pointer;" onclick="location.href='/insurances';" class="col-xl-2 col-md-4">
 				<div class="icon-box">
 					<i class="bi bi-coin"></i>
 					<h3><a href="/insurances">Finance</a></h3>
 				</div>
 			</div>
-			<div class="col-xl-2 col-md-4">
+			<div style=" cursor: pointer;" onclick="location.href='/products';" class="col-xl-2 col-md-4">
 				<div class="icon-box">
 					<i class="ri-shopping-cart-fill"></i>
-					<h3><a href="">Products</a></h3>
+					<h3><a href="/products">Products</a></h3>
 				</div>
 			</div>
-			<div class="col-xl-2 col-md-4">
+			<div style=" cursor: pointer;" onclick="location.href='/chat_index';" class="col-xl-2 col-md-4">
 				<div class="icon-box">
 					<i class="bi bi-chat-heart"></i>
 					<h3><a href="chat_index">Chat</a></h3>
@@ -113,11 +114,11 @@
 	<section id="about" class="about">
 		<div class="container" data-aos="fade-up">
 
-			<div class="row">
+			<div class="row"  style="margin: 0 auto">
 				<div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
 					<img src="../../resources/assets/img/about.png" class="img-fluid" alt="">
 				</div>
-				<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+				<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100"  style="margin: 0 auto; margin-top: 100px">
 					<h3>Pet & Met - 펫과 우리가 만나 행복이 더해지다.</h3>
 					<p class="fst-italic">
 						반려인의 비용 및 시간을 효율적으로 사용하게 하고 반려견의 더 건강한 삶을 도모하는 통합 서비스 제공
@@ -147,7 +148,7 @@
 				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
 					<div class="icon-box">
 						<div class="icon"><i class="ri-coins-fill"></i></div>
-						<h4><a href="">금융 추천</a></h4>
+						<h4><a href="/insurances">금융 추천</a></h4>
 						<p>반려동물 맞춤 금융 상품 추천 - 시간 절약 및 최적화된 자금 활용</p>
 					</div>
 				</div>
@@ -155,7 +156,7 @@
 				<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
 					<div class="icon-box">
 						<div class="icon"><i class="ri-shopping-cart-fill"></i></div>
-						<h4><a href="">상품 추천</a></h4>
+						<h4><a href="/products">상품 추천</a></h4>
 						<p> 반려동물에게 필요한 간식 및 용품 추천 - 반려동물의 건강 증진</p>
 					</div>
 				</div>
@@ -163,7 +164,7 @@
 				<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
 					<div class="icon-box">
 						<div class="icon"><i class="bi bi-chat-heart"></i></div>
-						<h4><a href="chat_index">상담</a></h4>
+						<h4><a href="/chat_index">상담</a></h4>
 						<p> 온라인 채팅 상담 - 보호자의 의사 결정 도움 및 반려동물 건강관리</p>
 					</div>
 				</div>
