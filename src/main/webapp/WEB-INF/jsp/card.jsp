@@ -51,6 +51,44 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+    
+    <style>
+		#annualfee{
+			margin-right : 10px;
+			border-radius:30px;
+		}
+				
+		#hospital{
+			margin-right : 10px;
+			border-radius:30px;
+		}
+		
+		#shopping{
+			margin-right : 10px;
+			border-radius:30px;
+		}
+		
+		#shopsave{
+			border-radius:30px;
+		}
+		
+		#listshape{
+			border-radius: 1.5rem;
+			box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 1.5rem 0px;
+			background-color: rgb(255, 255, 255);        	
+		}
+		
+		#cardname{
+			color:#FF9100;
+		}
+		
+		#cname{
+			color:#FF9100;
+		}
+		
+		</style>
+		
+    
 
 </head>
 <body>
@@ -63,31 +101,20 @@
 		<!-- ======= Breadcrumbs ======= -->
 		<section class="breadcrumbs">
 			<div class="container">
-				<h2>금융</h2>
-<!-- 				<a href="/insurances" class="get-started-btn2 scrollto">보험 추천</a> 
-				<a href="/card" class="get-started-btn2 scrollto">카드 추천</a> 
-				<a href="/saving" class="get-started-btn2 scrollto">적금 추천</a> -->
-				</div>
+			<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="/main">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">펫 금융</li>
+			    <li class="breadcrumb-item active" aria-current="page">카드 추천</li>
+			  </ol>
+			</nav>
+			</div>
 		</section>
 		
 		
 		<!-- End Breadcrumbs -->
 
 
-		<style>
-		#annualfee{
-			margin-right : 10px;
-		}
-				
-		#hospital{
-			margin-right : 10px;
-		}
-		
-		#shopping{
-			margin-right : 10px;
-		}
-		
-		</style>
 		
 		<section class="inner-page">
 			<div class="container">
@@ -100,7 +127,7 @@
 				
 				
 				<div class="list_card" style="text-align: center","margin:auto 0">
-					<table class="card_list">
+					<table class="card_list" id="listshape">
 						<colgroup>
 							<col width="500">
 							<col width="500">
@@ -113,7 +140,7 @@
 										style="width: 200px; height: 120px;" /></td>
 									<td class="detail">
 										<div class="title">
-											<a href="/card/${card.no}"><strong>${card.name}</strong></a>
+											<a href="/card/${card.no}" id=cardname><strong>${card.name}</strong></a>
 										</div>
 
 										<div class="price">연회비 <fmt:formatNumber value="${card.annual_fee}" pattern="#,###"></fmt:formatNumber>원</div>
@@ -160,7 +187,7 @@
 						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
 					</td>
 					<td class='detail'>
-						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
+						<div class='title'><a href='/card/${'${r.no}'}' id='cname'><strong>${'${r.name}'}</strong></a></div>
 						<div class='price'>연회비  ${'${fee}'}원</div>
 						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
@@ -191,7 +218,7 @@
 						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
 					</td>
 					<td class='detail'>
-						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
+						<div class='title'><a href='/card/${'${r.no}'}' id='cname'><strong>${'${r.name}'}</strong></a></div>
 						<div class='price'>연회비  ${'${fee}'}원</div>
 						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
@@ -222,7 +249,7 @@
 						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
 					</td>
 					<td class='detail'>
-						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
+						<div class='title'><a href='/card/${'${r.no}'}' id='cname'><strong>${'${r.name}'}</strong></a></div>
 						<div class='price'>연회비 ${'${fee}'}원</div>
 						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br>  쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
@@ -253,7 +280,7 @@
 						<img src='${'${r.image}'}' style='width: 200px; height:120px;'>
 					</td>
 					<td class='detail'>
-						<div class='title'><a href='/card/${'${r.no}'}'><strong>${'${r.name}'}</strong></a></div>
+						<div class='title'><a href='/card/${'${r.no}'}' id='cname'><strong>${'${r.name}'}</strong></a></div>
 						<div class='price'>연회비  ${'${fee}'}원</div>
 						<div class='discount'>병원 할인율 ${'${r.hospital_discount}'}% | 쇼핑몰 할인율 ${'${r.shopping_discount}'}%  <br> 쇼핑몰 적립율 ${'${r.acc_rate}'}%</div>
 					</td>
