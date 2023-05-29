@@ -23,14 +23,14 @@ function disconnect() {
 
 function sendMessage() {
     let message = $("#msg").val()
-    showMessage("<span class=\"chat-text01\">"+ message+"</span>");
+    showMessage("<li class=\"chat1-li2 list-item\"><span class=\"chat1-text02\">"+ message+"</span></li>");
     console.log(message);
     stompClient.send("/app/sendMessage", {}, JSON.stringify(message));
-    $("#msg").html("")
+    $("#msg").val('');
 }
 
 function showMessage(message) {
-    $("#communicate").append("<li class=\"chat-li list-item\">" + message + "</li>");
+    $("#communicate").append(message);
 }
 
 $(function () {
@@ -44,7 +44,7 @@ $(function () {
         console.log('Connected: ' + frame);
         stompClient.send("/app/sendMessage", {}, JSON.stringify("1"));
         stompClient.subscribe('/topic/public', function (message) {
-            showMessage("<span class=\"chat-text02\">"+message.body+"</span>");
+            showMessage('<li class="chat1-li1 list-item">\n' +'<span class="chat1-text01">'+message.body+'</span></li>');
         });
     });
     $( "#send" ).click(function() { sendMessage(); });
