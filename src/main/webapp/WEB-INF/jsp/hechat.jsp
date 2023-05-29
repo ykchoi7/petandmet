@@ -85,7 +85,7 @@
                                 placeholder="내용을 입력하세요..."
                                 class="chat1-textinput input"
                         />
-                        <button id="send" class="chat1-button" disabled type="submit"><img class="send-btn" src="../../resources/assets/img/send-btn.png"></button>
+                        <button id="send" class="chat1-button" disabled type="submit"><img class="send-btn" src="../../resources/assets/img/send.png"></button>
                     </form>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                 />
                 <span class="chat1-text03">박건강</span>
                 <span class="chat1-text04">선릉지점 펫 헬스 전문가</span>
-                <span class="chat1-text05">안녕하세요. <br>무엇이든 편하게 물어보세요~</span> <br><br>
+                <span class="chat1-text05">안녕하세요. <br>무엇이든 편하게 물어보세요~</span> <br>
                 <span class="chat1-text06-info"> <img class="counselor-emoji" src="https://em-content.zobj.net/thumbs/160/facebook/158/e-mail-symbol_1f4e7.png"> pkk@petandmet.com</span>
                 <span class="chat1-text06-info"> <img class="counselor-emoji" src="https://em-content.zobj.net/thumbs/160/toss-face/342/telephone-receiver_1f4de.png"> 02-123-1234</span>
                 <span class="chat1-text06-info"> <img class="counselor-emoji" src="https://em-content.zobj.net/thumbs/160/google/350/round-pushpin_1f4cd.png"> 서울특별시 강남구 대치동 123-123</span>

@@ -69,7 +69,7 @@
 			border-radius: 1.5rem;
 			box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 1.5rem 0px;
 			background-color: rgb(255, 255, 255);
-			display: flex; 
+			display: flex;
         	flex-wrap: wrap;
         	text-align: left;
         }
@@ -140,13 +140,13 @@
         
         .patella, .skin, .scaling, .tooth {
         	width: 13rem;
-        	margin: 1rem 1rem 0px 0px;
+        	margin: 1.5rem 1rem 0px 0px;
 			padding: 0px 20px 0px 20px;
         }
      
         .fee {
         	width: 100%;
-        	margin: 1rem 2.5rem 0px 3rem;
+        	margin: 2rem 2.5rem 0px 3rem;
         	font-weight: bold;
         	font-size: 1.4rem;
         	text-align: right;
@@ -190,18 +190,20 @@
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
 		<div class="container">
-
-			<h2>Finance</h2>
-			<a href="/insurances" class="get-started-btn2 scrollto">보험 추천</a> 
-			<a href="/card" class="get-started-btn2 scrollto">카드 추천</a> 
-			<a href="/saving" class="get-started-btn2 scrollto">적금 추천</a>
+			<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="/">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">펫 금융</li>
+			    <li class="breadcrumb-item active" aria-current="page">보험 추천</li>
+			  </ol>
+			</nav>
 		</div>
 	</section> <!-- End Breadcrumbs -->
 	
 	<section class="inner-page" style="align-items: center;">
 	
 	<div class="box" style="vertical-align:middle; line-height: 75px; margin-left: 13rem; margin-bottom: 1rem; white-space:nowrap;">
-		<h3 style="display:inline; margin-top: 2rem;">마이 펫 선택 </h3>
+		<h4 style="display:inline; margin-top: 2rem;">마이 펫 선택 </h4>
 		<select id="petSelect">
 			<c:forEach items="${petinfo}" var="pet">
 			<option value="${pet.breed}">${pet.name}</option>
@@ -241,38 +243,44 @@
 						let fee = parseInt(`${'${item.fee}'}`).toLocaleString('ko-KR');
 						
 						msg.append('<div class="name"><h2>'+ item.name +'</h2></div><br>')
-						msg.append('<div class="company"><p><b>' + item.company + '</b></p></div>')
-						msg.append('<div class="breed"><p>품종: ' + item.breed + '</p></div>')
-						msg.append('<div class="age"> 대상 연령: <br>' + '<p style="font-size: 18px; font-weight: bold;">' +item.min_age + '개월 ~ ' + item.max_age/12 +'세'+ '</p></div>')
-						msg.append('<div class="ratio"><div:after>보장 비율: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + item.coverage_ratio*100 + '% </p></div:after></div>')
-						msg.append('<div class="period">기간: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + item.period/12 + '년 </p></div>')
-						msg.append('<div class="annual">1년 최대 보장 금액: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + annual +'원 </p></div>')
-						msg.append('<div class="daily">1일 최대 보장 금액: <br>' + '<p style="font-size: 18px; font-weight: bold;">' + daily + '원 </p></div>')
-						msg.append('<div class="benefits"><p>혜택: <br>' + item.benefits + '</p></div>')
+						msg.append('<div class="company"><h5>' + item.company + '</h5></div>')
+						msg.append('<div class="breed"><h6>품종: ' + item.breed + '</h6></div>')
+						msg.append('<div class="age"><div style="color: #828282; font-size: 14px;"> 대상 연령: </div>' 
+								+ '<p style="font-size: 18px; font-weight: 900;">' +item.min_age + '개월 ~ ' + item.max_age/12 +'세'+ '</p></div>')
+						msg.append('<div class="ratio"><div:after><div style="color: #828282; font-size: 14px;">보장 비율: </div>' 
+								+ '<p style="font-size: 18px; font-weight: 900;">' + item.coverage_ratio*100 + '% </p></div:after></div>')
+						msg.append('<div class="period"><div style="color: #828282; font-size: 14px;"> 기간: </div>' 
+								+ '<p style="font-size: 18px; font-weight: 900;">' + item.period/12 + '년 </p></div>')
+						msg.append('<div class="annual"><div style="color: #828282; font-size: 14px;">1년 최대 보장 금액: </div>' 
+								+ '<p style="font-size: 18px; font-weight: 900;">' + annual +'원 </p></div>')
+						msg.append('<div class="daily"><div style="color: #828282; font-size: 14px;">1일 최대 보장 금액: </div>' 
+								+ '<p style="font-size: 18px; font-weight: 900;">' + daily + '원 </p></div>')
+						msg.append('<hr style="width: 100%; border-top: 2px dashed #ffbb38;">')
+						msg.append('<div class="benefits"><div style="font-size: 14px;">혜택: </div>' + item.benefits + '</div><br>')
 						if (item.patella == true) {
-							msg.append('<div class="patella"><p> 슬개골 보장 여부: <br>' + '보장' +'</p></div>')
+							msg.append('<div class="patella"><div style="font-size: 14px;"> 슬개골 보장 여부: </div>' + '<strong>보장</strong>' +'</div>')
 						} else {
-							msg.append('<div class="patella"><p> 슬개골 보장 여부: <br>' + '미보장' +'</p></div>')
+							msg.append('<div class="patella"><div style="font-size: 14px;"> 슬개골 보장 여부: </div>' + '<strong>미보장</strong>' +'</div>')
 						}
 						if (item.tooth == true) {
-							msg.append('<div class="tooth"><p> 구강질환 보장 여부: <br>' + '보장' +'</p></div>')
+							msg.append('<div class="tooth"><div style="font-size: 14px;"> 구강질환 보장 여부: </div>' + '<strong>보장</strong>' +'</div>')
 						} else {
-							msg.append('<div class="tooth"><p> 구강질환 보장 여부: <br>' + '미보장' +'</p></div>')
+							msg.append('<div class="tooth"><div style="font-size: 14px;"> 구강질환 보장 여부: </div>' + '<strong>미보장</strong>' +'</div>')
 						}
 						if (item.skin == true) {
-							msg.append('<div class="skin"><p> 피부질환 보장 여부: <br>' + '보장' +'</p></div>')
+							msg.append('<div class="skin"><div style="font-size: 14px;"> 피부질환 보장 여부: </div>' + '<strong>보장</strong>' +'</div>')
 						} else {
-							msg.append('<div class="skin"><p> 피부질환 보장 여부: <br>' + '미보장' +'</p></div>')
+							msg.append('<div class="skin"><div style="font-size: 14px;"> 피부질환 보장 여부: </div>' + '<strong>미보장</strong>' +'</div>')
 						}
 						if (item.scaling == true) {
-							msg.append('<div class="scaling"><p> 스케일링 보장 여부: <br>' + '보장' +'</p></div>')
+							msg.append('<div class="scaling"><div style="font-size: 14px;"> 스케일링 보장 여부: </div>' + '<strong>보장</strong>' +'</div>')
 						} else {
-							msg.append('<div class="scaling"><p> 스케일링 보장 여부: <br>' + '미보장' +'</p></div>')
+							msg.append('<div class="scaling"><div style="font-size: 14px;"> 스케일링 보장 여부: </div>' + '<strong>미보장</strong>' +'</div>')
 						}
 						if (item.method == 'monthly') {
-							msg.append('<div class="fee"><strong><p> 납입 금액 : 월 ' + fee +'</p></strong></div>')
+							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 월 ' + fee +'</p></strong></div>')
 						} if (item.method == 'annually') {
-							msg.append('<div class="fee"><strong><p> 납입 금액 : 연 ' + fee +'</p></strong></div>')
+							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 연 ' + fee +'</p></strong></div>')
 						}
 						msg.append('<a href = "insurances/ ' + item.no + '">' + '<button id="btn">' + '상세보기' + '</button></a><br>')
 						msg.append('<hr style="width: 100%; background-color: solid 1px grey;">')
