@@ -138,22 +138,42 @@
    			text-decoration-color: #ffbb38;
         }
         
-        #btn {
+        #policy {
 		    color: #33333;
 			border-radius: 2px;
-			padding: 8px 450px 8px 430px;
+			padding: 8px 408px 8px 408px;
 			white-space: nowrap;
 			transition: 0.3s;
 			font-size: 15px;
 			display: inline-block;
 			border: 2px solid #ffc451;
-			background: #ffc451;
+			background: #fff;
 			margin-top: 1rem;
+			margin-bottom: 0rem;
+		}
+		
+		#policy:hover {
+			background-color: rgba(255,247,250,0);
+  		    color: #ffc451;
+		}
+        
+        #btn {
+		    color: #33333;
+			border-radius: 2px;
+			padding: 8px 440px 8px 440px;
+			white-space: nowrap;
+			transition: 0.3s;
+			font-size: 15px;
+			display: inline-block;
+			border: 1px solid #ffc451;
+			background: #ffc451;
+			margin-top: 0.5rem;
 			margin-bottom: 1.5rem;
 		}
 		
 		#btn:hover {
 			background-color: rgba(255,247,250,0);
+			border: 2px solid #ffc451;
   		    color: #ffc451;
 		}
 		
@@ -193,15 +213,15 @@
 			
 			<div class="ratio"><p>보장비율: <fmt:parseNumber integerOnly="true" value="${i.coverage_ratio*100}}"/>% </p></div>
 			<div class="annual"><p style="font-size: 15px">1년 최대 보장 금액: </p>
-			<fmt:formatNumber type="number" maxFractionDigits="0" value="${i.annual_limit}"/>원</div>
+			<strong><fmt:formatNumber type="number" maxFractionDigits="0" value="${i.annual_limit}"/>원</strong></div>
 			<div class="daily"><p style="font-size: 15px">1일 최대 보장 금액: </p>
-			<fmt:formatNumber type="number" maxFractionDigits="0" value="${i.daily_limit}"/>원 </p></div>
-			<hr style="width: 100%; border-top: 0.5px solid black;">
+			<strong><fmt:formatNumber type="number" maxFractionDigits="0" value="${i.daily_limit}"/>원 </strong></div>
+			<hr style="width: 100%; border-top: 0.5px solid black; margin-top: 1.5rem;">
 			
-			<div class="breed"><p>품종: <br>${i.breed}</p></div>
-			<div class="age"><p>대상 연령: <br>${i.min_age}개월 ~ <fmt:parseNumber integerOnly="true" value="${i.max_age/12}"/>세 </p></div>
-			<div class="period"><p>기간: <br><fmt:parseNumber integerOnly="true" value="${i.period/12}"/>년 </p></div>
-			<div class="benefits"><p>혜택: <br>${i.benefits} </p></div>
+			<div class="breed"><p>품종: <br><strong>${i.breed}</strong></p></div>
+			<div class="age"><p>대상 연령: <br><strong>${i.min_age}개월 ~ <fmt:parseNumber integerOnly="true" value="${i.max_age/12}"/>세 </strong></p></div>
+			<div class="period"><p>기간: <br><strong><fmt:parseNumber integerOnly="true" value="${i.period/12}"/>년 </strong></p></div>
+			<div class="benefits"><p>혜택: <br><strong>${i.benefits} </strong></p></div>
 			
 			<div class="patella">슬개골 보장 여부:
 				<p style="font-size: 18px; font-weight: bold;">
@@ -252,12 +272,12 @@
 					연 <fmt:formatNumber type="number" maxFractionDigits="0" value="${i.fee}"/>
 				</c:if>
 			</b></p></div>
-					
+			
+			<a href = "${i.policy}" download><button id="policy">보험 약관 확인하기</button></a>
+			<a href = "${i.url}"><button id="btn" >가입하기</button></a>
+			
 			</c:forEach>
 			<br>
-			
-			<a href = "https://store.meritzfire.com/pet/main.do#!/"><button id="btn">가입하기</button></a>
-			
 		</div>
 	</div>
 	
