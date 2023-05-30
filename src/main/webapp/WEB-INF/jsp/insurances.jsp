@@ -205,8 +205,8 @@
 			<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
 			  <ol class="breadcrumb">
 			    <li class="breadcrumb-item"><a href="/">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">펫 금융</li>
-			    <li class="breadcrumb-item active" aria-current="page">보험 추천</li>
+			    <li class="breadcrumb-item active" aria-current="/insurances">펫 금융</li>
+			    <li class="breadcrumb-item active" aria-current="/insurances">보험 추천</li>
 			  </ol>
 			</nav>
 		</div>
@@ -275,6 +275,7 @@
 							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 연 ' + fee +'</p></strong></div>')
 						}
 						msg.append('<hr style="width: 100%; border-top: 2px dashed #ffbb38; margin-top: 0rem;">')
+						
 						/* msg.append('<div class="benefits"><div style="font-size: 14px;">혜택: </div>' + item.benefits + '</div><br>') */
 						if (item.patella == true) {
 							msg.append('<div class="patella"><div style="font-size: 14px;"> 슬개골 보장 여부: </div>' + '<strong>보장</strong>' +'</div>')
@@ -296,11 +297,7 @@
 						} else {
 							msg.append('<div class="scaling"><div style="font-size: 14px;"> 스케일링 보장 여부: </div>' + '<strong>미보장</strong>' +'</div>')
 						}
-						/* if (item.method == 'monthly') {
-							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 월 ' + fee +'</p></strong></div>')
-						} if (item.method == 'annually') {
-							msg.append('<br><div class="fee"><strong><p> 납입 금액 : 연 ' + fee +'</p></strong></div>')
-						} */
+						
 						msg.append('<a href = "insurances/ ' + item.no + '">' + '<button id="btn">' + '상세보기' + '</button></a><br>')
 						msg.append('<hr style="width: 100%; background-color: solid 1px grey;">')
 						msg.append('<br><br>')
