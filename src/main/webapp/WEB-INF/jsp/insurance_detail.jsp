@@ -138,22 +138,42 @@
    			text-decoration-color: #ffbb38;
         }
         
-        #btn {
+        #policy {
 		    color: #33333;
 			border-radius: 2px;
-			padding: 8px 450px 8px 430px;
+			padding: 8px 408px 8px 408px;
 			white-space: nowrap;
 			transition: 0.3s;
 			font-size: 15px;
 			display: inline-block;
 			border: 2px solid #ffc451;
-			background: #ffc451;
+			background: #fff;
 			margin-top: 1rem;
+			margin-bottom: 0rem;
+		}
+		
+		#policy:hover {
+			background-color: rgba(255,247,250,0);
+  		    color: #ffc451;
+		}
+        
+        #btn {
+		    color: #33333;
+			border-radius: 2px;
+			padding: 8px 440px 8px 440px;
+			white-space: nowrap;
+			transition: 0.3s;
+			font-size: 15px;
+			display: inline-block;
+			border: 1px solid #ffc451;
+			background: #ffc451;
+			margin-top: 0.5rem;
 			margin-bottom: 1.5rem;
 		}
 		
 		#btn:hover {
 			background-color: rgba(255,247,250,0);
+			border: 2px solid #ffc451;
   		    color: #ffc451;
 		}
 		
@@ -170,17 +190,16 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
-        <div class="container">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>보험 상세</h2>
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>마이페이지</li>
-                </ol>
-            </div>
-
-        </div>
+        <div class=container>
+			<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="/">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">펫 금융</li>
+			    <li class="breadcrumb-item active" aria-current="page">보험 추천</li>
+			    <li class="breadcrumb-item active" aria-current="page">보험 상세</li>
+			  </ol>
+			</nav>
+		</div>
     </section><!-- End Breadcrumbs -->
 	
 	<section class="inner-page" style="align-items: center;">
@@ -194,15 +213,15 @@
 			
 			<div class="ratio"><p>보장비율: <fmt:parseNumber integerOnly="true" value="${i.coverage_ratio*100}}"/>% </p></div>
 			<div class="annual"><p style="font-size: 15px">1년 최대 보장 금액: </p>
-			<fmt:formatNumber type="number" maxFractionDigits="0" value="${i.annual_limit}"/>원</div>
+			<strong><fmt:formatNumber type="number" maxFractionDigits="0" value="${i.annual_limit}"/>원</strong></div>
 			<div class="daily"><p style="font-size: 15px">1일 최대 보장 금액: </p>
-			<fmt:formatNumber type="number" maxFractionDigits="0" value="${i.daily_limit}"/>원 </p></div>
-			<hr style="width: 100%; border-top: 0.5px solid black;">
+			<strong><fmt:formatNumber type="number" maxFractionDigits="0" value="${i.daily_limit}"/>원 </strong></div>
+			<hr style="width: 100%; border-top: 0.5px solid black; margin-top: 1.5rem;">
 			
-			<div class="breed"><p>품종: <br>${i.breed}</p></div>
-			<div class="age"><p>대상 연령: <br>${i.min_age}개월 ~ <fmt:parseNumber integerOnly="true" value="${i.max_age/12}"/>세 </p></div>
-			<div class="period"><p>기간: <br><fmt:parseNumber integerOnly="true" value="${i.period/12}"/>년 </p></div>
-			<div class="benefits"><p>혜택: <br>${i.benefits} </p></div>
+			<div class="breed"><p>품종: <br><strong>${i.breed}</strong></p></div>
+			<div class="age"><p>대상 연령: <br><strong>${i.min_age}개월 ~ <fmt:parseNumber integerOnly="true" value="${i.max_age/12}"/>세 </strong></p></div>
+			<div class="period"><p>기간: <br><strong><fmt:parseNumber integerOnly="true" value="${i.period/12}"/>년 </strong></p></div>
+			<div class="benefits"><p>혜택: <br><strong>${i.benefits} </strong></p></div>
 			
 			<div class="patella">슬개골 보장 여부:
 				<p style="font-size: 18px; font-weight: bold;">
@@ -253,12 +272,12 @@
 					연 <fmt:formatNumber type="number" maxFractionDigits="0" value="${i.fee}"/>
 				</c:if>
 			</b></p></div>
-					
+			
+			<a href = "${i.policy}" download><button id="policy">보험 약관 확인하기</button></a>
+			<a href = "${i.url}"><button id="btn" >가입하기</button></a>
+			
 			</c:forEach>
 			<br>
-			
-			<a href = "https://store.meritzfire.com/pet/main.do#!/"><button id="btn">가입하기</button></a>
-			
 		</div>
 	</div>
 	

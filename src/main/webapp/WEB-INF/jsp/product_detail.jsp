@@ -116,7 +116,7 @@
                 </c:if>
                 </li>
                                 
-                <li class="text-center"><br><strong><a href="#">자세히 보기</a></strong></li>
+                <li class="text-center"><br><strong><a href="${dto.info_url}" target="_blank">자세히 보기</a></strong></li>
                 
               </ul>
             </div>

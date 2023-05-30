@@ -116,14 +116,10 @@
 			   		</ul>
 			   </div>
 			   <div class="card-body">
-					<div class="row row-cols-1 row-cols-md-2 g-4" id="products"></div>
+					<div class="row row-cols-1 row-cols-md-4 g-4" id="products"></div>
 			   </div>
 			  </div>
 		   	
-			
-			<!-- <div class="row row-cols-1 row-cols-md-2 g-4" id="products"></div> -->
-			<%-- <table id="msg">
-			</table> --%>
     	</div>
     </section>
     
@@ -192,7 +188,7 @@
 				console.log(item.skin)
 				console.log(item.scaling)
 				products.append(`<div class="col">
-					<div class="card">
+					<div class="card h-100">
 						<img src="${'${item.image}'}" class="card-img-top " alt="${'${item.name}'}">
 						<div class="card-body">
 							<h5 class="card-title">${'${item.name}'}</h5>

@@ -53,6 +53,14 @@
     ======================================================== -->
     
     <style>
+    	section{
+    	padding-top: 30px;
+   		padding-right: 0px;
+    	padding-bottom: 80px;
+    	padding-left: 0px;
+    	
+    	}
+    
 		#annualfee{
 			margin-right : 10px;
 			border-radius:30px;
@@ -79,12 +87,30 @@
 		}
 		
 		#cardname{
-			color:#FF9100;
+			color: #FF8000;
+    		font-size:15px;
+    		letter-spacing:0.5px;
 		}
 		
 		#cname{
-			color:#FF9100;
+			color: #FF8000;
+    		font-size:15px;
+    		letter-spacing:0.5px;
 		}
+		
+		#homecol{
+			color:#ffbb38;
+		}
+		
+		#recommend{
+			color:#6c757d;
+		}
+		
+		#money{
+			color:#6c757d;
+		}
+		
+		
 		
 		</style>
 		
@@ -103,9 +129,9 @@
 			<div class="container">
 			<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
 			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="/main">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">펫 금융</li>
-			    <li class="breadcrumb-item active" aria-current="page">카드 추천</li>
+			    <li class="breadcrumb-item"><a href="/" id=homecol><strong>Home</strong></a></li>
+			    <li class="breadcrumb-item active" aria-current="page"><a href="/insurances" id=money>펫 금융</a></li>
+			    <li class="breadcrumb-item active" aria-current="page"><a href="/card" id=recommend>카드 추천</a></li>
 			  </ol>
 			</nav>
 			</div>

@@ -77,8 +77,8 @@ public class MyPetPageController {
         UserDto u = (UserDto) user;
         int uid = u.getNo();//펫 주인 찾아옴
         int iid = Integer.parseInt(id);
-        String pet_image = "https://src.hidoc.co.kr/image/lib/2022/5/12/1652337370806_0.jpg";
-        petMapper.insertPet(uid,iid,pet_type,name,birth,weight,gender,isNeutered,"https://image.utoimage.com/preview/cp872722/2022/12/202212008462_500.jpg",breed,patella,tooth,skin,scaling);
+        String pet_image = "https://i.postimg.cc/VkvR5ZCd/Kakao-Talk-20230518-102140797-06.jpg";
+        petMapper.insertPet(uid,iid,pet_type,name,birth,weight,gender,isNeutered,pet_image,breed,patella,tooth,skin,scaling);
 
         return "redirect:/mypetpage";
     }

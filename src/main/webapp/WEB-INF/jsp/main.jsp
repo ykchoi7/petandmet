@@ -57,14 +57,14 @@
 		<!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 		<c:if test="${user eq null}">
 		<div>
-			<a href="/login" class="get-started-btn scrollto">로그인</a>
-			<a href="/signup" class="get-started-btn scrollto">회원가입</a>
+			<a href="/login" class="get-started-btn3 scrollto">로그인</a>
+			<a href="/signup" class="get-started-btn3 scrollto">회원가입</a>
 		</div>
 		</c:if>
 		<c:if test="${user ne null}">
 		<div>
-			<a href="/logout" class="get-started-btn scrollto">로그아웃</a>
-			<a href="/mypage" class="get-started-btn scrollto">마이페이지</a>
+			<a href="/logout" class="get-started-btn3 scrollto">로그아웃</a>
+			<a href="/mypage" class="get-started-btn3 scrollto">마이페이지</a>
 		</div>
 		</c:if>
 		

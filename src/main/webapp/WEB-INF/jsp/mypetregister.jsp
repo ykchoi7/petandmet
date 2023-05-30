@@ -113,8 +113,8 @@
                         <td class="thead">성별</td>
                         <td>
                             <label>
-                                <input type="radio" name="gender" value="male" id="male">수컷
-                                <input type="radio" name="gender" value="female" id="female">암컷
+                                <input type="radio" name="gender" value="수컷" id="male">수컷
+                                <input type="radio" name="gender" value="암컷" id="female">암컷
                             </label>
                         </td>
                     </tr>
