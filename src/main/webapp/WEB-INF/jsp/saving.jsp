@@ -140,7 +140,7 @@
 										<div class="discount">
 											최소 기한 ${saving.period}개월 <br>
 											월 저축액 최소 <fmt:formatNumber value="${saving.min_saving_amount*1000}" pattern="#,###"></fmt:formatNumber>원  | 
-											월 저축액 최소 <fmt:formatNumber value="${saving.max_saving_amount*1000}" pattern="#,###"></fmt:formatNumber>원 
+											월 저축액 최대 <fmt:formatNumber value="${saving.max_saving_amount*1000}" pattern="#,###"></fmt:formatNumber>원 
 										</div>
 									</td>
 									<td class="interest">
