@@ -87,13 +87,13 @@
 		}
 		
 		#cardname{
-			color: black;
+			color: #FF8000;
     		font-size:15px;
     		letter-spacing:0.5px;
 		}
 		
 		#cname{
-			color: black;
+			color: #FF8000;
     		font-size:15px;
     		letter-spacing:0.5px;
 		}

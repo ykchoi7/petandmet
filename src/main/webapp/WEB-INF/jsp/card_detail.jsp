@@ -497,10 +497,6 @@
 										<button id="btn">카드 신청하기</button>
 									</a>
 									</div>
-									
-									<!-- <a class="information">
-										<i></i>
-									</a> --> 
 									</div>
 							</div>
 						</div>
@@ -509,71 +505,7 @@
 			</section>
 		</div>
 	
-	
-	
-	<%-- <section id="card-details" class="card-details">
-		<div class="row"> 
-	
-			<h3 align = "center" style = "margin-bottom:20px">카드 상세</h3>
-	
-		</div>
-	
-		<div class="container text-center">
-  			<div class="row">
-			    <div class="col">
-			      <div>
-			      	<img alt="${cdto.name}" src="${cdto.image}" style='width: 300px; height : 190px;'>
-			      </div>
-			    </div>
-				<h3 align = "center" class="title"  style = "margin-bottom:10px; margin-top:20px">${cdto.name}</h3>
-				<div class="d-flex justify-content-evenly" style = "margin-bottom:10px; margin-top:20px"> 
-				    <div>
-						<h5>요약</h5>
-						<div class="price">
-							연회비 <fmt:formatNumber value="${cdto.annual_fee}" pattern="#,###"></fmt:formatNumber> 원
-						</div>
-						<div class="discount" >
-							동물병원 방문시, ${cdto.hospital_discount}% 결제일 할인<br>
-							쇼핑몰 ${cdto.shopping_discount}% 결제일 할인<br>
-							쇼핑몰 ${cdto.acc_rate}% 적립
-						</div>
-						<div class="good">
-							${cdto.benefits}
-						</div>
-					</div>
-		
-			    	<div class="vr"></div>
-			    
-				    <div>
-				      <div class="card-sub" id=cardsub>
-		              	<h5>부가 혜택</h5>
-				             <c:choose>
-				             	<c:when test="${cdto.insurance_reg eq true}">
-				             	<p>동물 단체 보험 가입 보장</p>
-				             	</c:when>
-				             	<c:otherwise>
-				             	<p>동물 단체 보험 가입 미보장</p>
-				             	</c:otherwise>
-				             </c:choose>
-				             
-				             <c:choose>
-				             	<c:when test="${cdto.fund eq true}">
-				             	<p>동물 보호 공익기금 조성</p>
-				             	</c:when>
-				             	<c:otherwise>
-				             	<p>동물 보호 공익기금 미조성</p>
-				             	</c:otherwise>
-				              </c:choose>
-				        <a href="${cdto.info_url}"><strong>카드 신청하러 가기</strong></a>			
-				        </div>
-				    </div>
-		  		</div>
-		 	</div>
-		</div> 
-     </section> --%>
-<!-- End Card Details Section -->
-	
-	
+
 
 	<footer id="footer"
 		include-html="../../resources/assets/html/footer.html"></footer>

@@ -82,6 +82,10 @@
     	font-size:14.5px;
     	letter-spacing:0.7px;
 	}
+	
+	#savinginfo{
+		color:#FF8000;
+	}
 
 	
 </style>    
@@ -143,7 +147,7 @@
 										<div class="interest">
 											최대 금리 ${saving.interest_rate+saving.prime_rate}%
 										</div>
-										<a class="link-underline-dark" href="${saving.info_url}"><strong>자세히 보기</strong></a>
+										<a class="link-underline-dark" href="${saving.info_url}" id=savinginfo><strong>자세히 보기</strong></a>
 									</td>
 								</tr>
 							</c:forEach>
