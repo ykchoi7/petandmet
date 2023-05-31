@@ -40,28 +40,6 @@ public class InsuranceController {
 	private final InsuranceService service;
 	private final PetService petService;
 	
-	//전체 목록보기 주석처리 
-//	@GetMapping("/insurances")
-//	public String insurance(Model model) {
-//		//db에서 보험 리스트 가져오기		
-//        List<InsuranceDto> ins = mapper.findAll();
-//
-//        for (InsuranceDto i : ins) {
-//			int max = (int)(i.getMax_age()/12);
-//			i.setMax_age(max);
-//			
-//			int rate = (int)(i.getCoverage_ratio()*100);
-//			i.setCoverage_ratio(rate);
-//			
-//			int year = (int)(i.getPeriod()/12);
-//			i.setPeriod(year);
-//		}
-//		model.addAttribute("ins", ins);
-//		
-//		return "insurances";
-//	}
-	
-
 	//petdto에서 pet breed를 가져오기 
 	@GetMapping
     public String insurance(Model model, HttpServletRequest req) {
