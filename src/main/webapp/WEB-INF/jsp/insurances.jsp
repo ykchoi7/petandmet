@@ -103,6 +103,15 @@
    			text-decoration-color: #ffbb38;
         }
         
+        .alert {
+        	text-align: right;
+        	width: 100%;
+        	margin: 0rem 0rem 1px 0px;
+        	padding: 0px 20px 0px 20px;
+        	background: rgb(255, 255, 255);
+        	color: #FF7F50;
+        }
+        
         .breed, .benefits {
             text-align: left;
         	width: 100%;
@@ -257,6 +266,14 @@
 						let fee = parseInt(`${'${item.fee}'}`).toLocaleString('ko-KR');
 						
 						msg.append('<div class="name"><h2>'+ item.name +'</h2></div><br>')
+						if (index == 0 && item.breed == '보더콜리') {
+							msg.append('<div class="alert"><strong>📣 '+ item.petname +'와 유사한 특징을 가진 펫 92%가 이 상품을 선택했어요!</strong><div>')
+						} else if (index == 0 && item.breed == '러시안블루') {
+							msg.append('<div class="alert"><strong>📣 '+ item.petname +'와 유사한 특징을 가진 펫 90%가 이 상품을 선택했어요!</strong><div>')
+						} else if (index == 0 && item.breed == '말티즈') {
+							msg.append('<div class="alert"><strong>📣 '+ item.petname +'와 유사한 특징을 가진 펫 96%가 이 상품을 선택했어요!</strong><div>')
+						}
+						
 						msg.append('<div class="company"><h5>' + item.company + '</h5></div>')
 						msg.append('<div class="breed"><h6>품종: ' + item.breed + '</h6></div>')
 						msg.append('<div class="age"><div style="color: #828282; font-size: 14px;"> 대상 연령: </div>' 
