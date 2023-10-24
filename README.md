@@ -32,7 +32,7 @@ KB IT's Your Life 3기 3반_1조
 <img src="https://github.com/ykchoi7/petandmet/assets/125428810/c2b013d9-5dd7-4a1c-a658-c99f26c5e141" width="100%"></img>
 <br><br>
 
-### 팀 프로젝트 최우수상 수상
+### 🏆 팀 프로젝트 최우수상 수상 🏆
 - JAVA, SPRING 활용 능력 향상 및 문제해결력 향상
 - 도전적인 과제 수행을 위한 업무 컨트롤 능력과 시간 자원 관리 능력 향상
 - 개발 프로젝트를 통한 팀원들과의 커뮤니케이션 역량 강화
